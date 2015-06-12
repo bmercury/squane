@@ -70,3 +70,11 @@ body {
 #currentPlace{
 	width: 100%;
 }
+
+.choise {
+	border-radius: 3px;
+	background-size: 100%;
+	display: inline-block;
+	width: 30%;
+	padding-bottom: 30%;
+}

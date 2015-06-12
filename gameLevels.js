@@ -42,9 +42,17 @@ function hideSquares(thisLevel){
 		var el = document.getElementById("block"+i);
 		el.className = el.className + " no-color";
 	}
-	document.getElementById("currentPlace").innerHTML("<img src=''>");
 
+	startInvestigation();
 }
+
+var gThisColor = 0;
+function startInvestigation(){
+	document.getElementById("currentPlace").innerHTML = "<div class='choise color" + gThisColor + "'></div>";
+}
+
+
+
 window.onload = function() {
 	mainLevelFunction(level);
 }
