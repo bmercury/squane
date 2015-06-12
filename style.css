@@ -1,3 +1,12 @@
 body {
 	background-color: #E8E8E8;
 }
+.top-image {
+	width: 98%;
+	padding: 1%;
+}
+.game-table {
+	width: 99%;
+	padding: 0.5%;
+	background-color: #BDBDBD;
+}
