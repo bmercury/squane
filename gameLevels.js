@@ -18,3 +18,11 @@ var colorMap = [
 function mainLevelFunction(thisLevel){
 	
 }
+
+function createSquares(thisLevel){
+	
+}
+
+function hideSquares(thisLevel){
+
+}
