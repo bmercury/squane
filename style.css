@@ -8,7 +8,6 @@ body {
 }
 .game-table {
 	width: 99%;
-	padding: 0.5%;
 	background-color: #BDBDBD;
 }
 .buttons{
@@ -23,12 +22,24 @@ body {
 	display: block;
 	border-radius: 4px;
 }
+.box{
+	width: 80%;
+	margin-left: 5%;
+	margin-right: 5%;
+	padding: 5%;
+	text-align: center;
+	line-height: 30px;
+	background-color: #BDBDBD;
+	display: block;
+	border-radius: 4px;
+}
 .block{
 	border-radius: 3px;
 	display: inline-block;
+	background-size: 100%;
 }
 .size2{
 	width: 48%;
 	margin: 1%;
-	
+	padding-bottom:48%;
 }
