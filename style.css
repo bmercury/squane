@@ -43,3 +43,19 @@ body {
 	margin: 1%;
 	padding-bottom: 47%;
 }
+
+.color0{
+	background-image: url("images/square-blue.png");
+}
+.color0{
+	background-image: url("images/square-red.png");
+}
+.color0{
+	background-image: url("images/square-green.png");
+}
+.color0{
+	background-image: url("images/square-yellow.png");
+}
+.color0{
+	background-image: url("images/square-purple.png");
+}
