@@ -37,7 +37,6 @@ function createSquares(thisLevel){
 }
 
 function hideSquares(thisLevel){
-	alert("skatishanaas laiks ir beidzies");
 	var cellCount=levelData[thisLevel].rows*levelData[thisLevel].rows;
 	for(var i=0;i<cellCount;i++){
 		var el = document.getElementById("block"+i);
