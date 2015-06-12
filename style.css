@@ -59,3 +59,6 @@ body {
 .color4{
 	background-image: url("images/square-purple.png");
 }
+.no-color{
+	background-image: url("images/square-gray.png");
+}

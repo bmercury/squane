@@ -7,6 +7,12 @@ var levelData = [
 	{rows:2,colors:4,speed:0}
 ];
 
+var speedData = [
+	3000,
+	2000,
+	1000
+];
+
 
 function mainLevelFunction(thisLevel){
 	createSquares(thisLevel);
@@ -26,13 +32,16 @@ function createSquares(thisLevel){
 		//alert(squaneTable);
 	}
 	document.getElementById("gameTable").innerHTML = squaneTable;
+	var thisSpeed = speedData[ levelData[thisLevel].speed ];
+	setTimeout(hideSquares, thisSpeed, thisLevel);
 }
 
 function hideSquares(thisLevel){
-	cellCount=levelData[thisLevel].rows*[thisLevel].rows;
+	alert("skatishanaas laiks ir beidzies");
+	var cellCount=levelData[thisLevel].rows*levelData[thisLevel].rows;
 	for(var i=0;i<cellCount;i++){
-		var element = document.getElementById("block"+i);
-		document.getElementById("block"+i).src="images/square-gray.png";
+		var el = document.getElementById("block"+i);
+		el.className = el.className + " no-color";
 	}
 }
 window.onload = function() {
