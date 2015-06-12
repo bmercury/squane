@@ -2,7 +2,7 @@ var level = 0;
 var score = 0;
 
 var levelData = [
-	{rows:2,colors:5,speed:0}, // kolonas,krasas,atrums
+	{rows:2,colors:2,speed:0}, // kolonas,krasas,atrums
 	{rows:2,colors:3,speed:0},
 	{rows:2,colors:4,speed:0}
 ];
@@ -16,6 +16,8 @@ function createSquares(thisLevel){
 	var cellCount = levelData[thisLevel].rows*levelData[thisLevel].rows;
 
 	var squaneTable = "";
+
+	var ans = [];
 
 	for(var i = 0; i<cellCount; i++){
 		var thisColor = Math.floor(Math.random() * (levelData[thisLevel].colors));
