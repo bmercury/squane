@@ -26,7 +26,11 @@ function createSquares(thisLevel){
 }
 
 function hideSquares(thisLevel){
-
+	cellCount=levelData[thisLevel].rows*[thisLevel].rows;
+	for(var i=0;i<cellCount;i++){
+		var element = document.getElementById("block"+i);
+		document.getElementById("block"+i).src;
+	}
 }
 window.onload = function() {
 	mainLevelFunction(level);
