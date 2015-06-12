@@ -14,3 +14,7 @@ var colorMap = [
 	"square-yellow.png",
 	"square-purple.png"
 ];
+
+function mainLevelFunction(thisLevel){
+	
+}
