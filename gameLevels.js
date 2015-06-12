@@ -42,6 +42,8 @@ function hideSquares(thisLevel){
 		var el = document.getElementById("block"+i);
 		el.className = el.className + " no-color";
 	}
+	document.getElementById("currentPlace").innerHTML("<img src=''>");
+
 }
 window.onload = function() {
 	mainLevelFunction(level);

@@ -61,4 +61,12 @@ body {
 }
 .no-color{
 	background-image: url("images/square-gray.png");
+	-webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    -o-transition: background 0.3s;
+    transition: background 0.3s;
+}
+
+#currentPlace{
+	width: 100%;
 }
