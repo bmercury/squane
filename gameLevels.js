@@ -16,7 +16,11 @@ var colorMap = [
 ];
 
 function mainLevelFunction(thisLevel){
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> origin/master
 }
 
 function createSquares(thisLevel){
