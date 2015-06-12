@@ -1,4 +1,5 @@
 var level = 1;
+var score = 0;
 
 var colorCount = [
 	{rows:2,colors:2,speed:0}, // kolonas,krasas,atrums
