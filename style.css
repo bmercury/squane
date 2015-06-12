@@ -23,3 +23,12 @@ body {
 	display: block;
 	border-radius: 4px;
 }
+.block{
+	border-radius: 3px;
+	display: inline-block;
+}
+.size2{
+	width: 48%;
+	margin: 1%;
+	
+}
