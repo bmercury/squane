@@ -7,14 +7,6 @@ var colorCount = [
 	{rows:2,colors:4,speed:0}
 ];
 
-var colorMap = [
-	"square-blue.png",
-	"square-red.png",
-	"square-green.png",
-	"square-yellow.png",
-	"square-purple.png"
-];
-
 function mainLevelFunction(thisLevel){
 <<<<<<< HEAD
 
