@@ -18,17 +18,17 @@ function mainLevelFunction(thisLevel){
 	createSquares(thisLevel);
 }
 
+var ans = [];
+
 function createSquares(thisLevel){
 	var cellCount = levelData[thisLevel].rows*levelData[thisLevel].rows;
 
 	var squaneTable = "";
 
-	var ans = [];
-
 	for(var i = 0; i<cellCount; i++){
 		var thisColor = Math.floor(Math.random() * (levelData[thisLevel].colors));
 		ans[i] = thisColor;
-		squaneTable = squaneTable + "<div class='block size" + levelData[thisLevel].rows + " color" + thisColor + "' id='block" + i + "'></div>";
+		squaneTable = squaneTable + "<div onclick='choiseDone(" + i + ");' class='block size" + levelData[thisLevel].rows + " color" + thisColor + "' id='block" + i + "'></div>";
 		//alert(squaneTable);
 	}
 	document.getElementById("gameTable").innerHTML = squaneTable;
