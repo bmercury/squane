@@ -55,6 +55,11 @@ body {
 	margin: 1%;
 	padding-bottom: 31%;
 }
+.size4{
+	width: 23%;
+	margin: 1%;
+	padding-bottom: 23%;
+}
 
 .color0{
 	background-image: url("images/square-blue.png");

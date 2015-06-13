@@ -13,10 +13,15 @@ function splash(n){
 }
 
 var level = {
-        rows: 2,
-        colors: 2,
-        speed: 0
-    };
+    rows: 2,
+    colors: 2,
+    speed: 0
+};
+var  = {
+    rows: 2,
+    colors: 2,
+    speed: 0
+};
 
 var speedData = [
     2500,
@@ -102,7 +107,7 @@ function choiseDone(i) {
 
         } else {
             // Izvēlēts nepareizais kvadrārs
-            score += -2 * ( Math.floor(thisLevel / 5) +1 );
+            score += -2 * ( Math.floor(score / 10) +1 );
         }
     }
     document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
@@ -119,18 +124,21 @@ function choiseDone(i) {
 }
 
 function nextColor(){
-    gThisColor++;
-    if(gThisColor==level.colors){
-        score = score + squanesLeft*(  -2 * (Math.floor(thisLevel / 5) +1 ) );
-        document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
-        if(score<0){
-            gameOver();
-        } else {
-            thisLevel++;
-            mainLevelFunction();
+    if(squanesLeft>0){
+
+        gThisColor++;
+        if(gThisColor==level.colors){
+            score = score + squanesLeft*(  -2 * (Math.floor(score / 10) +1 ) );
+            document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
+            if(score<0){
+                gameOver();
+            } else {
+                thisLevel++;
+                mainLevelFunction();
+            }
         }
+        startInvestigation();
     }
-    startInvestigation();
 }
 
 function gameOver(){
@@ -142,20 +150,31 @@ function gameOver(){
 
 function generateLevelData(){ // level .rows .colors .speed
     var maxSpeed = 4;
-    if(level.colors == 2) {
+    if(actualLevel.colors == 2) {
         maxSpeed = 5;
     }
+    ++actualLevel.speed;
     ++level.speed;
-    if(level.speed==maxSpeed){
+
+    if(actualLevel.speed==maxSpeed){
         level.speed = 0;
+        actualLevel.speed = 0;
+
         level.colors++;
+        actualLevel.colors++;
     }
-    if(level.colors==maxColors){
+    if(actualLevel.colors==maxColors){
+        actualLevel.colors = 2;
         level.colors = 2;
+
+        actualLevel.rows++;
         level.rows++;
     }
-    if(level.rows==maxRows){
+    if(actualLevel.rows==maxRows){
+        actualLevel.colors = maxColors-1;
         level.colors = maxColors-1;
+
+        actualLevel.rows--;
         level.rows--;
     }
 
