@@ -1,4 +1,3 @@
-var level = 0;
 var score = 0;
 var gThisColor = 0;
 var gray = false;
@@ -50,41 +49,11 @@ function setBg(n){
 }
 
 
-var levelData = [{
+var level{
         rows: 2,
         colors: 2,
         speed: 0
-    }, // kolonas,krasas,atrums
-    {
-        rows: 2,
-        colors: 2,
-        speed: 1
-    }, {
-        rows: 2,
-        colors: 2,
-        speed: 3
-    }, {
-        rows: 2,
-        colors: 2,
-        speed: 4
-    }, {
-        rows: 2,
-        colors: 3,
-        speed: 1
-    }, {
-        rows: 2,
-        colors: 3,
-        speed: 2
-    }, {
-        rows: 2,
-        colors: 3,
-        speed: 3
-    }, {
-        rows: 2,
-        colors: 3,
-        speed: 3
     }
-];
 
 var speedData = [
     2500,
@@ -99,7 +68,7 @@ var squanesLeft = 0;
 
 function mainLevelFunction() {
     document.getElementById("lvl").innerHTML = "Līmenis: " + (thisLevel+1);
-    resetSquares(levelData[level].rows * levelData[level].rows);
+    resetSquares(level.rows * level.rows);
     document.getElementById("currentPlace").innerHTML = "";
     gThisColor = 0;
 
@@ -115,19 +84,19 @@ function resetSquares(n) {
 var ans = [];
 
 function createSquares() {
-    var cellCount = levelData[thisLevel].rows * levelData[thisLevel].rows;
+    var cellCount = level.rows * level.rows;
 
     squanesLeft = cellCount;
     var squaneTable = "";
 
     for (var i = 0; i < cellCount; i++) {
-        var thisColor = Math.floor(Math.random() * (levelData[thisLevel].colors));
+        var thisColor = Math.floor(Math.random() * (level.colors));
         ans[i] = thisColor;
-        squaneTable = squaneTable + "<div onclick='choiseDone(" + i + "," + thisLevel + ");' class='block size" + levelData[thisLevel].rows + " color" + thisColor + "' id='block" + i + "'></div>";
+        squaneTable = squaneTable + "<div onclick='choiseDone(" + i + "," + thisLevel + ");' class='block size" + level.rows + " color" + thisColor + "' id='block" + i + "'></div>";
         //alert(squaneTable);
     }
     document.getElementById("gameTable").innerHTML = squaneTable;
-    var thisSpeed = speedData[levelData[thisLevel].speed];
+    var thisSpeed = speedData[level.speed];
     setTimeout(hideSquares, thisSpeed, thisLevel);
 }
 
