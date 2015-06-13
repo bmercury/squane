@@ -124,3 +124,29 @@ body {
 	font-weight: bold;
 	font-size: 28px;
 }
+.splashScreen{
+	background-color: #1F1F1F;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	z-index: 998;
+	margin: 0px;
+}
+.splashScreen img{
+	position: absolute;
+	z-index: 999;
+	width: 98%;
+	left:1%;
+	right:1%;
+	top:40%;
+}
+#splashText{
+	position: absolute;
+	z-index: 1000;
+	width: 100%;
+	color: white;
+	bottom: 0px;
+	text-align: center;
+}

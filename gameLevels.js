@@ -1,5 +1,4 @@
 var score = 0;
-var maxScore = 0;
 var gThisColor = 0;
 var gray = false;
 var maxColors = 5;
@@ -7,58 +6,17 @@ var maxRows = 4;
 
 var thisLevel = 0;
 
-var bg = 0;
-
-function getBg2(){
-    var b;
-    if(getBg()=="white")b=0;
-    else b=1;
-    setBg2(b);
-}
-
 function stats(){
-    var maxlvl = localStorage.getItem("maxlvl");
     maxLvl+=1;
-    var maxscore = localStorage.getItem("maxscore");
     document.getElementById("maxLvl").innerHTML=maxlvl;
     document.getElementById("maxScore").innerHTML=maxscore;
 }
 
-function getBg(){
-    bg = localStorage.getItem("bg");
-    if(bg==0)return "white";
-    else return "black";
+function splash(n){
+    setTimeout(function(){
+        $(".splashScreen").fadeOut(200);
+    }, n);
 }
-
-function setBg2(n){
-    if(n==1){
-        localStorage.setItem("bg", 1);
-        $("body").css("background-color","#242424");
-        $("body").css("color","white");
-    }else{
-        localStorage.setItem("bg", 0);
-        $("body").css("background-color","#E8E8E8");
-        $("body").css("color","#242424");
-    }
-}
-
-function setBg(n){
-    if(n==1){
-        localStorage.setItem("bg", 1);
-    
-        document.getElementById("bg2").innerHTML='<button onclick="setBg(1)" id="bgBlack" style="border-color:#D12121;">Tumšs</button>';
-        document.getElementById("bg1").innerHTML='<button onclick="setBg(0)" id="bgWhite">Gaišs</button>';
-        $("body").css("background-color","#242424");
-        $("body").css("color","white");
-    }else{
-        localStorage.setItem("bg", 0);
-        document.getElementById("bg2").innerHTML='<button onclick="setBg(1)" id="bgBlack">Tumšs</button>';
-        document.getElementById("bg1").innerHTML='<button onclick="setBg(0)" id="bgWhite" style="border-color:#D12121;">Gaišs</button>';
-        $("body").css("background-color","#E8E8E8");
-        $("body").css("color","#242424");
-    }
-}
-
 
 var level = {
         rows: 2,
@@ -185,8 +143,6 @@ function nextColor(){
 
 function gameOver(){
     $("#currentPlace").hide();
-    localStorage.setItem("maxlvl", thisLevel);
-    localStorage.setItem("maxscore", maxScore);
     document.getElementById("gameTable").innerHTML = "<h3>Spēles beigas!<h3> <p>Līmenis: " + (thisLevel+1) +"</p>";
     document.getElementById("gameTable").css("background-color","#80CEFF");
 }
