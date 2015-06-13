@@ -2,9 +2,9 @@ var level = 0;
 var score = 0;
 var gThisColor = 0;
 var gray = false;
-<<<<<<< HEAD
+
 var thisLevel = 0;
-=======
+
 var bg = 0;
 
 function getBg2(){
@@ -48,7 +48,7 @@ function setBg(n){
         $("body").css("color","#242424");
     }
 }
->>>>>>> origin/master
+
 
 var levelData = [{
         rows: 2,
