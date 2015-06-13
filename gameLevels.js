@@ -135,8 +135,7 @@ function nextColor(){
 
 function gameOver(){
     $("#currentPlace").hide();
-    document.getElementById("gameTable").innerHTML = "<h3>Spēles beigas!<h3> <p>Līmenis: " + (thisLevel+1) +"</p>";
-    document.getElementById("gameTable").css("background-color","#80CEFF");
+    document.getElementById("gameTable").innerHTML = "<h1 style='text-align:center;'>Spēles beigas!<h1><div style='width:94%;margin-left:3%;margin-right:3%;background-color:#333333;padding-top:4%;border-radius:4px;color:white;'><p style='margin:0px;text-align:center'>Sasniegtais līmenis</p><h3 style='text-align:center;margin-top:5px;'>"+(thisLevel+1)+"</h3></div><a class='again'>Spēlēt vēlreiz</a>";
 }
 
 
