@@ -8,7 +8,7 @@ var thisLevel = 0;
 
 function splash(n){
     setTimeout(function(){
-        $(".splashScreen").fadeOut(200);
+        location.replace("menu.html");
     }, n);
 }
 
