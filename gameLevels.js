@@ -99,9 +99,7 @@ function choiseDone(i) {
         if (choise == gThisColor) {
             // Izvēlēts pareizais kvadrārs
             score += 1;
-            if(score> maxScore){
-                maxScore=score;
-            }
+
         } else {
             // Izvēlēts nepareizais kvadrārs
             score += -2 * ( Math.floor(thisLevel / 5) +1 );
@@ -123,7 +121,7 @@ function choiseDone(i) {
 function nextColor(){
     gThisColor++;
     if(gThisColor==level.colors){
-        score = score + squanesLeft*(  -2 * (thisLevel / 5 +1 ) );
+        score = score + squanesLeft*(  -2 * (Math.floor(thisLevel / 5) +1 ) );
         document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
         if(score<0){
             gameOver();
