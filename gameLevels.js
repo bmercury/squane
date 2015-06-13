@@ -43,7 +43,8 @@ function mainLevelFunction() {
 
     setTimeout(function(){
         generateLevelData();
-        document.getElementById("lvl").innerHTML = "Līmenis: " + (thisLevel+1);
+        var displayLevel = (thisLevel+1);
+        document.getElementById("lvl").innerHTML = "Līmenis: " + displayLevel;
         resetSquares(level.rows * level.rows);
         document.getElementById("currentPlace").innerHTML = "";
         gThisColor = 0;
@@ -111,17 +112,19 @@ function choiseDone(i) {
             // Izvēlēts nepareizais kvadrārs
             score += -2 * ( Math.floor(score / 10) +1 );
         }
-    }
-    document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
-    $("#block" + i).removeClass("no-color");
+    
+        document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
+        $("#block" + i).removeClass("no-color");
 
-    if(score<0){
-        gameOver();
-    }
+        if(score<0){
+            gameOver();
+        }
 
-    if(squanesLeft<1){
-        thisLevel++;
-        mainLevelFunction();
+        if(squanesLeft<1){
+            thisLevel++;
+            mainLevelFunction();
+        }
+
     }
 }
 
