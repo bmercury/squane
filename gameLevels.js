@@ -1,6 +1,8 @@
 var level = 0;
 var score = 0;
+var gThisColor = 0;
 var gray = false;
+var thisLevel = 0;
 
 var levelData = [{
         rows: 2,
@@ -9,26 +11,37 @@ var levelData = [{
     }, // kolonas,krasas,atrums
     {
         rows: 2,
-        colors: 3,
-        speed: 0
+        colors: 2,
+        speed: 1
     }, {
         rows: 2,
-        colors: 4,
-        speed: 0
+        colors: 2,
+        speed: 3
+    }, {
+        rows: 2,
+        colors: 2,
+        speed: 4
     }
 ];
 
 var speedData = [
-    3000,
+    2500,
     2000,
-    1000
+    1500,
+    1000,
+    500
 ];
 
 var clicks = [];
+var squanesLeft = 0;
 
-function mainLevelFunction(thisLevel) {
-    createSquares(thisLevel);
+function mainLevelFunction() {
+    document.getElementById("lvl").innerHTML = "Līmenis: " + (thisLevel+1);
     resetSquares(levelData[level].rows * levelData[level].rows);
+    document.getElementById("currentPlace").innerHTML = "";
+    gThisColor = 0;
+
+    createSquares();
 }
 
 function resetSquares(n) {
@@ -39,9 +52,10 @@ function resetSquares(n) {
 
 var ans = [];
 
-function createSquares(thisLevel) {
+function createSquares() {
     var cellCount = levelData[thisLevel].rows * levelData[thisLevel].rows;
 
+    squanesLeft = cellCount;
     var squaneTable = "";
 
     for (var i = 0; i < cellCount; i++) {
@@ -55,7 +69,7 @@ function createSquares(thisLevel) {
     setTimeout(hideSquares, thisSpeed, thisLevel);
 }
 
-function hideSquares(thisLevel) {
+function hideSquares() {
     var cellCount = levelData[thisLevel].rows * levelData[thisLevel].rows;
     for (var i = 0; i < cellCount; i++) {
         var el = document.getElementById("block" + i);
@@ -66,13 +80,11 @@ function hideSquares(thisLevel) {
     startInvestigation();
 }
 
-var gThisColor = 0;
-
 function startInvestigation() {
     document.getElementById("currentPlace").innerHTML = "<div onclick='nextColor();' class='choise color" + gThisColor + "'></div>";
 }
 
-function choiseDone(i,thisLevel) {
+function choiseDone(i) {
     var choise = null;
     if ($("#block" + i).hasClass("color0")) choise = 0;
     else if ($("#block" + i).hasClass("color1")) choise = 1;
@@ -82,6 +94,7 @@ function choiseDone(i,thisLevel) {
 
     if (clicks[i] != 1 && gray) {
         clicks[i] = 1;
+        squanesLeft--;
         if (choise == gThisColor) {
             // Izvēlēts pareizais kvadrārs
             score += 1;
@@ -94,19 +107,37 @@ function choiseDone(i,thisLevel) {
     $("#block" + i).removeClass("no-color");
 
     if(score<0){
-        $("#currentPlace").hide();
+        gameOver();
+    }
 
-
-        document.getElementById("gameTable").innerHTML = "<h3>Spēles beigas!<h3> <p>Līmenis: " + thisLevel +"</p>";
-        document.getElementById("gameTable").css("background-color","#80CEFF");
+    if(squanesLeft<1){
+        thisLevel++;
+        mainLevelFunction();
     }
 }
 
 function nextColor(){
     gThisColor++;
+    if(gThisColor==levelData[thisLevel].colors){
+        score = score + squanesLeft*(-2);
+        document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
+        if(score<0){
+            gameOver();
+        } else {
+            thisLevel++;
+            mainLevelFunction();
+        }
+    }
     startInvestigation();
 }
 
+function gameOver(){
+    $("#currentPlace").hide();
+
+    document.getElementById("gameTable").innerHTML = "<h3>Spēles beigas!<h3> <p>Līmenis: " + (thisLevel+1) +"</p>";
+    document.getElementById("gameTable").css("background-color","#80CEFF");
+}
+
 window.onload = function() {
-    mainLevelFunction(level);
+    mainLevelFunction();
 }
