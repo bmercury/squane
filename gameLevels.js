@@ -7,20 +7,41 @@ var thisLevel = 0;
 =======
 var bg = 0;
 
+function getBg2(){
+    var b;
+    if(getBg()=="white")b=0;
+    else b=1;
+    setBg2(b);
+}
+
 function getBg(){
+    bg = localStorage.getItem("bg");
     if(bg==0)return "white";
     else return "black";
 }
 
+function setBg2(n){
+    if(n==1){
+        localStorage.setItem("bg", 1);
+        $("body").css("background-color","#242424");
+        $("body").css("color","white");
+    }else{
+        localStorage.setItem("bg", 0);
+        $("body").css("background-color","#E8E8E8");
+        $("body").css("color","#242424");
+    }
+}
+
 function setBg(n){
     if(n==1){
-        bg=1;
+        localStorage.setItem("bg", 1);
+    
         document.getElementById("bg2").innerHTML='<button onclick="setBg(1)" id="bgBlack" style="border-color:#D12121;">Tumšs</button>';
         document.getElementById("bg1").innerHTML='<button onclick="setBg(0)" id="bgWhite">Gaišs</button>';
         $("body").css("background-color","#242424");
         $("body").css("color","white");
     }else{
-        bg=0;
+        localStorage.setItem("bg", 0);
         document.getElementById("bg2").innerHTML='<button onclick="setBg(1)" id="bgBlack">Tumšs</button>';
         document.getElementById("bg1").innerHTML='<button onclick="setBg(0)" id="bgWhite" style="border-color:#D12121;">Gaišs</button>';
         $("body").css("background-color","#E8E8E8");
