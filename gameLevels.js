@@ -1,6 +1,7 @@
 var score = 0;
 var gThisColor = 0;
 var gray = false;
+var maxColors = 5
 
 var thisLevel = 0;
 
@@ -49,11 +50,11 @@ function setBg(n){
 }
 
 
-var level{
+var level = {
         rows: 2,
         colors: 2,
         speed: 0
-    }
+    };
 
 var speedData = [
     2500,
@@ -67,6 +68,7 @@ var clicks = [];
 var squanesLeft = 0;
 
 function mainLevelFunction() {
+    generateLevelData();
     document.getElementById("lvl").innerHTML = "Līmenis: " + (thisLevel+1);
     resetSquares(level.rows * level.rows);
     document.getElementById("currentPlace").innerHTML = "";
@@ -101,7 +103,7 @@ function createSquares() {
 }
 
 function hideSquares() {
-    var cellCount = levelData[thisLevel].rows * levelData[thisLevel].rows;
+    var cellCount = level.rows * level.rows;
     for (var i = 0; i < cellCount; i++) {
         var el = document.getElementById("block" + i);
         el.className = el.className + " no-color";
@@ -149,7 +151,7 @@ function choiseDone(i) {
 
 function nextColor(){
     gThisColor++;
-    if(gThisColor==levelData[thisLevel].colors){
+    if(gThisColor==level.colors){
         score = score + squanesLeft*(-2);
         document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
         if(score<0){
@@ -167,6 +169,21 @@ function gameOver(){
 
     document.getElementById("gameTable").innerHTML = "<h3>Spēles beigas!<h3> <p>Līmenis: " + (thisLevel+1) +"</p>";
     document.getElementById("gameTable").css("background-color","#80CEFF");
+}
+
+
+
+function generateLevelData(){ // level .rows .colors .speed
+    var maxSpeed = 4;
+    if(level.colors == 2) {
+        maxSpeed = 5;
+    }
+    ++level.speed;
+    if(level.speed==maxSpeed){
+        level.speed = 0;
+        level.colors++;
+    }
+    if(level.colors){}
 }
 
 window.onload = function() {
