@@ -17,7 +17,7 @@ var level = {
     colors: 2,
     speed: 0
 };
-var  = {
+var actualLevel = {
     rows: 2,
     colors: 2,
     speed: 0
@@ -154,28 +154,32 @@ function generateLevelData(){ // level .rows .colors .speed
         maxSpeed = 5;
     }
     ++actualLevel.speed;
-    ++level.speed;
 
     if(actualLevel.speed==maxSpeed){
-        level.speed = 0;
         actualLevel.speed = 0;
-
-        level.colors++;
         actualLevel.colors++;
     }
     if(actualLevel.colors==maxColors){
         actualLevel.colors = 2;
-        level.colors = 2;
-
         actualLevel.rows++;
-        level.rows++;
     }
     if(actualLevel.rows==maxRows){
         actualLevel.colors = maxColors-1;
-        level.colors = maxColors-1;
-
         actualLevel.rows--;
-        level.rows--;
+    }
+
+    level.rows = actualLevel.rows;
+    level.colors = actualLevel.colors;
+    level.speed = actualLevel.speed;
+
+    if(thisLevel>=8){
+        var thisCase = Math.floor(Math.random() * 7);
+
+        if(thisCase==1){
+            level.rows = 4;
+            level.colors = 2;
+            level.speed = Math.floor(Math.random() * 2);
+        }
     }
 
     gray = false;
