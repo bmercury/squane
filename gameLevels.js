@@ -1,6 +1,28 @@
 var level = 0;
 var score = 0;
 var gray = false;
+var bg = 0;
+
+function getBg(){
+    if(bg==0)return "white";
+    else return "black";
+}
+
+function setBg(n){
+    if(n==1){
+        bg=1;
+        document.getElementById("bg2").innerHTML='<button onclick="setBg(1)" id="bgBlack" style="border-color:#D12121;">Tumšs</button>';
+        document.getElementById("bg1").innerHTML='<button onclick="setBg(0)" id="bgWhite">Gaišs</button>';
+        $("body").css("background-color","#242424");
+        $("body").css("color","white");
+    }else{
+        bg=0;
+        document.getElementById("bg2").innerHTML='<button onclick="setBg(1)" id="bgBlack">Tumšs</button>';
+        document.getElementById("bg1").innerHTML='<button onclick="setBg(0)" id="bgWhite" style="border-color:#D12121;">Gaišs</button>';
+        $("body").css("background-color","#E8E8E8");
+        $("body").css("color","#242424");
+    }
+}
 
 var levelData = [{
         rows: 2,

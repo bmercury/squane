@@ -1,6 +1,10 @@
 body {
 	background-color: #E8E8E8;
 	font-family: Arial;
+	color: #242424;
+}
+*:focus{
+	outline: none;
 }
 .top-image {
 	width: 98%;
@@ -88,3 +92,30 @@ body {
     border-bottom-right-radius: 3px; 
 }
 
+.bgDiv{
+	width: 98%;
+	padding: 1% 1% 1% 1%;
+}
+#bgWhite{
+	border: 3px solid gray;
+	background-color: #E8E8E8;
+	width: 100%;
+	display: block;
+	height: 70px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	color: #242424;
+	font-weight: bold;
+	font-size: 28px;
+}
+#bgBlack{
+	border: 3px solid gray;
+	background-color: #242424;
+	width: 100%;
+	display: block;
+	height: 70px;
+	border-radius: 4px;
+	color: #E8E8E8;
+	font-weight: bold;
+	font-size: 28px;
+}

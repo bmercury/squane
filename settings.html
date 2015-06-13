@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<link rel='stylesheet' type='text/css' href='style.css'/>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="fabric.js"></script>
+		<script type="text/javascript" src="gameLevels.js"></script>
+
+		<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no"/>
+		<meta charset="utf-8"/>
+		<title>Squane</title>
+	</head>
+	<body>
+		<a style="margin-top: 10px;margin-bottom: 10px;color:#303030;font-weight:bold;text-decoration:none;font-size:1.8em;" href="index.html" class="buttons">&#9664; Atpakaļ
+</a>
+		<div class="bgDiv">
+		<strong><h2>Mainīt fonu</h2></strong>
+		<div id="bg1"></div>
+		<div id="bg2"></div>
+		<script type="text/javascript">
+			var bg=getBg();
+			if(bg=="white"){
+				document.getElementById("bg1").innerHTML='<button onclick="setBg(0)" id="bgWhite" style="border-color:#D12121;">Gaišs</button>';
+			}else{
+				document.getElementById("bg1").innerHTML='<button onclick="setBg(0)" id="bgWhite">Gaišs</button>';
+			}
+			if(bg=="black"){
+				document.getElementById("bg2").innerHTML='<button onclick="setBg(1)" id="bgBlack" style="border-color:#D12121;">Tumšs</button>';
+			}else{
+				document.getElementById("bg2").innerHTML='<button onclick="setBg(1)" id="bgBlack">Tumšs</button>';
+			}
+		</script>
+		</div>
+	</body>
+</html>
