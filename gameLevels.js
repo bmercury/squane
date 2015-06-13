@@ -1,4 +1,5 @@
 var score = 0;
+var maxScore = 0;
 var gThisColor = 0;
 var gray = false;
 var maxColors = 5
@@ -131,6 +132,7 @@ function choiseDone(i) {
         if (choise == gThisColor) {
             // Izvēlēts pareizais kvadrārs
             score += 1;
+            maxScore+=1;
         } else {
             // Izvēlēts nepareizais kvadrārs
             score -= 2;
@@ -166,7 +168,8 @@ function nextColor(){
 
 function gameOver(){
     $("#currentPlace").hide();
-
+    localStorage.setItem("maxlvl", level);
+    localStorage.setItem("maxscore", 1);
     document.getElementById("gameTable").innerHTML = "<h3>Spēles beigas!<h3> <p>Līmenis: " + (thisLevel+1) +"</p>";
     document.getElementById("gameTable").css("background-color","#80CEFF");
 }
