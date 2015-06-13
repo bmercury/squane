@@ -67,6 +67,22 @@ var levelData = [{
         rows: 2,
         colors: 2,
         speed: 4
+    }, {
+        rows: 2,
+        colors: 3,
+        speed: 1
+    }, {
+        rows: 2,
+        colors: 3,
+        speed: 2
+    }, {
+        rows: 2,
+        colors: 3,
+        speed: 3
+    }, {
+        rows: 2,
+        colors: 3,
+        speed: 3
     }
 ];
 
@@ -75,7 +91,7 @@ var speedData = [
     2000,
     1500,
     1000,
-    500
+    750
 ];
 
 var clicks = [];
