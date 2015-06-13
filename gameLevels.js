@@ -16,6 +16,13 @@ function getBg2(){
     setBg2(b);
 }
 
+function stats(){
+    var maxlvl = localStorage.getItem("maxlvl");
+    var maxscore = localStorage.getItem("maxscore");
+    document.getElementById("maxLvl").innerHTML=maxlvl;
+    document.getElementById("maxScore").innerHTML=maxscore;
+}
+
 function getBg(){
     bg = localStorage.getItem("bg");
     if(bg==0)return "white";
@@ -133,7 +140,9 @@ function choiseDone(i) {
         if (choise == gThisColor) {
             // Izvēlēts pareizais kvadrārs
             score += 1;
-            maxScore+=1;
+            if(score> maxScore){
+                maxScore==score;
+            }
         } else {
             // Izvēlēts nepareizais kvadrārs
             score -= 2;
@@ -169,8 +178,8 @@ function nextColor(){
 
 function gameOver(){
     $("#currentPlace").hide();
-    localStorage.setItem("maxlvl", level);
-    localStorage.setItem("maxscore", 1);
+    localStorage.setItem("maxlvl", thisLevel);
+    localStorage.setItem("maxscore", maxScore);
     document.getElementById("gameTable").innerHTML = "<h3>Spēles beigas!<h3> <p>Līmenis: " + (thisLevel+1) +"</p>";
     document.getElementById("gameTable").css("background-color","#80CEFF");
 }
