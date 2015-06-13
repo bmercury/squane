@@ -108,7 +108,7 @@ function createSquares() {
     }
     document.getElementById("gameTable").innerHTML = squaneTable;
     var thisSpeed = speedData[level.speed];
-    setTimeout(hideSquares, thisSpeed, thisLevel);
+    setTimeout(hideSquares, thisSpeed);
 }
 
 function hideSquares() {
@@ -141,7 +141,7 @@ function choiseDone(i) {
             // Izvēlēts pareizais kvadrārs
             score += 1;
             if(score> maxScore){
-                maxScore==score;
+                maxScore=score;
             }
         } else {
             // Izvēlēts nepareizais kvadrārs
