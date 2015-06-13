@@ -47,7 +47,7 @@ function createSquares(thisLevel) {
     for (var i = 0; i < cellCount; i++) {
         var thisColor = Math.floor(Math.random() * (levelData[thisLevel].colors));
         ans[i] = thisColor;
-        squaneTable = squaneTable + "<div onclick='choiseDone(" + i + ");' class='block size" + levelData[thisLevel].rows + " color" + thisColor + "' id='block" + i + "'></div>";
+        squaneTable = squaneTable + "<div onclick='choiseDone(" + i + "," + thisLevel + ");' class='block size" + levelData[thisLevel].rows + " color" + thisColor + "' id='block" + i + "'></div>";
         //alert(squaneTable);
     }
     document.getElementById("gameTable").innerHTML = squaneTable;
@@ -69,10 +69,10 @@ function hideSquares(thisLevel) {
 var gThisColor = 0;
 
 function startInvestigation() {
-    document.getElementById("currentPlace").innerHTML = "<div class='choise color" + gThisColor + "'></div>  <div class='next-color'> Nākamā krāsa &#9658 </div>";
+    document.getElementById("currentPlace").innerHTML = "<div onclick='nextColor();' class='choise color" + gThisColor + "'></div>";
 }
 
-function choiseDone(i) {
+function choiseDone(i,thisLevel) {
     var choise = null;
     if ($("#block" + i).hasClass("color0")) choise = 0;
     else if ($("#block" + i).hasClass("color1")) choise = 1;
@@ -90,9 +90,21 @@ function choiseDone(i) {
             score -= 2;
         }
     }
-    document.getElementById("score").innerHTML = "Punkti: " + score;
+    document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
     $("#block" + i).removeClass("no-color");
 
+    if(score<0){
+        $("#currentPlace").hide();
+
+
+        document.getElementById("gameTable").innerHTML = "<h3>Spēles beigas!<h3> <p>Līmenis: " + thisLevel +"</p>";
+        document.getElementById("gameTable").css("background-color","#80CEFF");
+    }
+}
+
+function nextColor(){
+    gThisColor++;
+    startInvestigation();
 }
 
 window.onload = function() {
