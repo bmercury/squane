@@ -204,6 +204,8 @@ function generateLevelData(){ // level .rows .colors .speed
         level.colors = maxColors-1;
         level.rows--;
     }
+
+    gray = false;
 }
 
 window.onload = function() {
