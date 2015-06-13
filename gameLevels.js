@@ -6,12 +6,6 @@ var maxRows = 4;
 
 var thisLevel = 0;
 
-function stats(){
-    maxLvl+=1;
-    document.getElementById("maxLvl").innerHTML=maxlvl;
-    document.getElementById("maxScore").innerHTML=maxscore;
-}
-
 function splash(n){
     setTimeout(function(){
         $(".splashScreen").fadeOut(200);
