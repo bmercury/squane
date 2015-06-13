@@ -2,7 +2,8 @@ var score = 0;
 var maxScore = 0;
 var gThisColor = 0;
 var gray = false;
-var maxColors = 5
+var maxColors = 5;
+var maxRows = 4;
 
 var thisLevel = 0;
 
@@ -186,7 +187,14 @@ function generateLevelData(){ // level .rows .colors .speed
         level.speed = 0;
         level.colors++;
     }
-    if(level.colors){}
+    if(level.colors==maxColors){
+        level.colors = 2;
+        level.rows++;
+    }
+    if(level.rows==maxRows){
+        level.colors = maxColors-1;
+        level.rows--;
+    }
 }
 
 window.onload = function() {

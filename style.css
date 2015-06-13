@@ -50,6 +50,11 @@ body {
 	margin: 1%;
 	padding-bottom: 47%;
 }
+.size3{
+	width: 31%;
+	margin: 1%;
+	padding-bottom: 31%;
+}
 
 .color0{
 	background-image: url("images/square-blue.png");
