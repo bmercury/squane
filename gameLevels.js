@@ -18,6 +18,7 @@ function getBg2(){
 
 function stats(){
     var maxlvl = localStorage.getItem("maxlvl");
+    maxLvl+=1;
     var maxscore = localStorage.getItem("maxscore");
     document.getElementById("maxLvl").innerHTML=maxlvl;
     document.getElementById("maxScore").innerHTML=maxscore;
