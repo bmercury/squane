@@ -1,5 +1,5 @@
 var score = 0;
-var gThisColor = 0;
+var gThisColor = 1;
 var gray = false;
 var maxColors = 5;
 var maxRows = 4;
@@ -36,6 +36,9 @@ var speedData = [
 var clicks = [];
 var squanesLeft = 0;
 
+var usedColors = [];
+var colorsLeft = 0;
+
 function mainLevelFunction() {
     
     var waitTime = 1500;
@@ -47,7 +50,7 @@ function mainLevelFunction() {
         document.getElementById("lvl").innerHTML = "Līmenis: " + displayLevel;
         resetSquares(level.rows * level.rows);
         document.getElementById("currentPlace").innerHTML = "";
-        gThisColor = 0;
+        newColorPattern();
 
         createSquares();
     },waitTime);
@@ -127,12 +130,30 @@ function choiseDone(i) {
 
     }
 }
+function newColorPattern(){
+    colorsLeft = level.colors;
+    for(var i = 0; i<maxColors; i++){
+        usedColors[i] = 0;
+    }
+    chooseColor();
+}
+
+function chooseColor(){
+    gThisColor = Math.floor(Math.random() * level.colors);
+    while(usedColors[gThisColor]!=0){
+        gThisColor = Math.floor(Math.random() * level.colors);
+    }
+    usedColors[gThisColor] = 1;
+    colorsLeft--;
+    //alert(gThisColor);
+}
 
 function nextColor(){
     if(squanesLeft>0){
+        //alert("some squanes left");
 
-        gThisColor++;
-        if(gThisColor==level.colors){
+        chooseColor();
+        if(colorsLeft<0){
             score = score + squanesLeft*(  -2 * (Math.floor(score / 10) +1 ) );
             document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
             if(score<0){
