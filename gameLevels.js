@@ -85,15 +85,13 @@ function choiseDone(i) {
         if (choise == gThisColor) {
             // Izvēlēts pareizais kvadrārs
             score += 1;
-            document.getElementById("score").innerHTML = "Punkti: " + score;
-            $("#block" + i).removeClass("no-color");
         } else {
             // Izvēlēts nepareizais kvadrārs
             score -= 2;
-            document.getElementById("score").innerHTML = "Punkti: " + score;
-            $("#block" + i).removeClass("no-color");
         }
     }
+    document.getElementById("score").innerHTML = "Punkti: " + score;
+    $("#block" + i).removeClass("no-color");
 
 }
 
