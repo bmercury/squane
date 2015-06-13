@@ -8,7 +8,6 @@ body {
 }
 .game-table {
 	width: 99%;
-	background-color: #BDBDBD;
 }
 .buttons{
 	width: 80%;
@@ -70,6 +69,7 @@ body {
 #currentPlace{
 	width: 100%;
 	margin-top: 10px;
+    vertical-align: middle;
 }
 
 .choise {
@@ -79,3 +79,12 @@ body {
 	width: 30%;
 	padding-bottom: 30%;
 }
+.next-color{
+    height:30%;
+    display: inline-block;
+    background-color: #BDBDBD;
+    vertical-align: middle;
+    border-top-right-radius: 3px; 
+    border-bottom-right-radius: 3px; 
+}
+
