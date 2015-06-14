@@ -3,6 +3,7 @@ var gThisColor = 1;
 var gray = false;
 var maxColors = 5;
 var maxRows = 4;
+var maxScore=0;
 
 var thisLevel = 0;
 
@@ -110,7 +111,9 @@ function choiseDone(i) {
         if (choise == gThisColor) {
             // Izvēlēts pareizais kvadrārs
             score += 1;
-
+            if(score > maxScore){
+                maxScore=score;
+            }
         } else {
             // Izvēlēts nepareizais kvadrārs
             score += -2 * ( Math.floor(score / 10) +1 );
@@ -163,7 +166,9 @@ function nextColor(){
 }
 
 function gameOver(){
-    localStorage.setItem("lvl2", thisLevel+1);
+    localStorage.setItem("mlvl", thisLevel+1);
+    localStorage.setItem("mscore", maxScore);
+    //localStorage.setItem("average", thisLevel+1);
     $("#currentPlace").hide();
     document.getElementById("gameTable").innerHTML = "<h1 style='text-align:center;'>Spēles beigas!<h1><div style='width:94%;margin-left:3%;margin-right:3%;background-color:#333333;padding-top:4%;border-radius:4px;color:white;'><p style='margin:0px;text-align:center'>Sasniegtais līmenis</p><h3 style='text-align:center;margin-top:5px;'>"+(thisLevel+1)+"<a href='game.html' class='again'>Spēlēt vēlreiz</a></div>";
 }
