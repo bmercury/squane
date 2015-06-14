@@ -176,7 +176,18 @@ function gameOver(){
     //localStorage.setItem("pos", pos);
     
     $("#currentPlace").hide();
-    document.getElementById("gameTable").innerHTML = "<h1 style='text-align:center;'>Spēles beigas!<h1><div style='width:94%;margin-left:3%;margin-right:3%;background-color:#333333;padding-top:4%;border-radius:4px;color:white;'><p style='margin:0px;text-align:center'>Sasniegtais līmenis</p><h3 style='text-align:center;margin-top:5px;'>"+(thisLevel+1)+"<a href='game.html' class='again'>Spēlēt vēlreiz</a></div>";
+
+    var gameOverText ="<h1 style='text-align:center;'>Spēles beigas!<h1><div style='width:94%;margin-left:3%;margin-right:3%;background-color:#333333;padding-top:4%;border-radius:4px;color:white;'><p style='margin:0px;text-align:center'>Sasniegtais līmenis</p>";
+
+
+    if( (thisLevel+1)>lastBest){
+        gameOverText = gameOverText + "<h3 style='text-align:center;margin-top:5px; color:#FCCA00;'>"+(thisLevel+1) + "</h3>";
+        gameOverText = gameOverText + "<h4 style='text-align:center; color:#FCCA00;'>Jauns rekords!</h3>";
+    } else {
+        gameOverText = gameOverText + "<h3 style='text-align:center; margin-top:5px;'>"+(thisLevel+1) + "</h3>";
+    }
+
+    document.getElementById("gameTable").innerHTML = gameOverText + "<a href='game.html' class='again'>Spēlēt vēlreiz</a></div>";
 }
 
 function generateLevelData(){ // level .rows .colors .speed
