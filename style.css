@@ -15,17 +15,30 @@ body {
 	width: 99%;
 }
 .buttons{
-	width: 80%;
+	width: 63%;
 	height: 30px;
 	margin-left: 5%;
 	margin-right: 5%;
 	padding: 5%;
-	text-align: center;
+
+	padding-left:22%;
+	/*text-align: left;*/
 	line-height: 30px;
 	background-color: #BDBDBD;
 	display: block;
 	border-radius: 4px;
 }
+.menubut{
+	margin-top: 50px;
+	color:#303030;
+	font-weight:bold;
+	text-decoration:none;
+	font-size:1.8em;
+
+	background-repeat: no-repeat;
+	background-size:auto 100%;
+}
+
 .box{
 	width: 80%;
 	margin-left: 5%;
