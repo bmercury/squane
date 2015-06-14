@@ -3,7 +3,7 @@ body {
 	font-family: Arial;
 	color: #242424;
 }
-*:focus{
+*, *:focus{
 	outline: none;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);  
 }
