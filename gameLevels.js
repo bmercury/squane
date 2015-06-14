@@ -139,12 +139,15 @@ function newColorPattern(){
 }
 
 function chooseColor(){
-    gThisColor = Math.floor(Math.random() * level.colors);
-    while(usedColors[gThisColor]!=0){
+    //alert("izvelas krasu. palikusas " + colorsLeft);
+    if(colorsLeft>0){
         gThisColor = Math.floor(Math.random() * level.colors);
+        while(usedColors[gThisColor]!=0){
+            gThisColor = Math.floor(Math.random() * level.colors);
+        }
+        usedColors[gThisColor] = 1;
+        colorsLeft--;
     }
-    usedColors[gThisColor] = 1;
-    colorsLeft--;
     //alert(gThisColor);
 }
 
@@ -153,17 +156,9 @@ function nextColor(){
         //alert("some squanes left");
 
         chooseColor();
-        if(colorsLeft<0){
-            score = score + squanesLeft*(  -2 * (Math.floor(score / 10) +1 ) );
-            document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
-            if(score<0){
-                gameOver();
-            } else {
-                thisLevel++;
-                mainLevelFunction();
-            }
-        }
         startInvestigation();
+        
+        //alert(colorsLeft);
     }
 }
 
