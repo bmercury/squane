@@ -201,7 +201,7 @@ function generateLevelData(){ // level .rows .colors .speed
         actualLevel.speed = 0;
         actualLevel.colors++;
     }
-    if(actualLevel.colors==maxColors){
+    if(actualLevel.colors>maxColors){
         actualLevel.colors = 2;
         actualLevel.rows++;
     }
