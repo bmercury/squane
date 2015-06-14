@@ -182,7 +182,7 @@ function gameOver(){
 
     if( (thisLevel+1)>lastBest){
         gameOverText = gameOverText + "<h3 style='text-align:center;margin-top:5px; color:#FCCA00;'>"+(thisLevel+1) + "</h3>";
-        gameOverText = gameOverText + "<h4 style='text-align:center; margin-top:10px; color:#FCCA00;'>Jauns rekords!</h3>";
+        gameOverText = gameOverText + "<h4 style='text-align:center; margin-top:0px; color:#FCCA00;'>Jauns rekords!</h3>";
     } else {
         gameOverText = gameOverText + "<h3 style='text-align:center; margin-top:5px;'>"+(thisLevel+1) + "</h3>";
     }
