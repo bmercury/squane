@@ -21,13 +21,16 @@
 	<body>
 		<a href="menu.html"><img src="images/squane-logo.png" class="top-image"></a>
 		<div style="text-align:left;color: #262626;" class="box">
-			<h2>Par mums</h2>
+			<h2>Statistika</h2>
 			<div class="line"></div>
-			<p><strong>Squane Alpha 3</strong></p>
-			<div class="line"></div>
-			<p>Veidoja:<br>Reinards Jānis Saulītis,<br>Niks Derums</p>
-			<div class="line"></div>
-			<p>Spēles mērķis ir attīstīt spēlētāja atmiņu izmantojot krāsu kombinācijas</p>
+			<h4><strong>Augstākais līmenis:</strong> <span id="mlvl"></span></h4>
+			<h4><strong>Maksimālie punkti:</strong> <span id="mscore"></span></h4>
+			<!--<h4><strong>Vidējais līmenis(100 spēlēs): </strong> <span id="aver"></span></h4>-->
 		</div>
+
+		<script type="text/javascript">
+			document.getElementById("mlvl").innerHTML=localStorage.getItem("mlvl");
+			document.getElementById("mscore").innerHTML=localStorage.getItem("mscore");
+		</script>
 	</body>
 </html>
