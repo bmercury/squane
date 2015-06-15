@@ -16,6 +16,22 @@ function splash(n){
     }, n);
 }
 
+function setBg(){
+    var bg = localStorage.getItem("bg");
+    var color = null;
+    if(bg==0){
+        bg="#E8E8E8";
+        color="#242424";
+    }else{
+        bg="#242424";
+        color="#E8E8E8";
+    }
+    $(document).ready(function(){
+        $("body").css('background-color', bg);
+        $("body").css('color', color);
+    });
+}
+
 var level = {
     rows: 2,
     colors: 2,
