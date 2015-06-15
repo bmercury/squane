@@ -167,9 +167,10 @@ function nextColor(){
 }
 
 function gameOver(){
-    var lastBest = localStorage.getItem("mlvl");
+    var lastBestLevel = localStorage.getItem("mlvl");
+    var lastBestScore = localStorage.getItem("mscore");
     localStorage.setItem("mlvl", Math.max(thisLevel+1,lastBest) );
-    localStorage.setItem("mscore", maxScore);
+    localStorage.setItem("mscore", Math.max(maxScore,lastBestScore));
     
     
     
