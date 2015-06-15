@@ -166,14 +166,18 @@ function nextColor(){
     }
 }
 
-function gameOver(){
+function setScore(){
     var lastBest = localStorage.getItem("mlvl");
     var lastBestScore = localStorage.getItem("mscore");
     localStorage.setItem("mlvl", Math.max(thisLevel+1,lastBest) );
     localStorage.setItem("mscore", Math.max(maxScore,lastBestScore));
+}
+
+function gameOver(){    
     
-    
-    
+    setScore();
+    var lastBest = localStorage.getItem("mlvl");
+
     //localStorage.setItem("pos", pos);
     
     $("#currentPlace").hide();
