@@ -73,12 +73,33 @@ function createSquares() {
     var squaneTable = "";
 
     for (var i = 0; i < cellCount; i++) {
-        var thisColor = Math.floor(Math.random() * (level.colors));
-        ans[i] = thisColor;
-        squaneTable = squaneTable + "<div onmousedown='choiseDone(" + i + "," + thisLevel + ");' class='block size" + level.rows + " color" + thisColor + "' id='block" + i + "'></div>";
+        
+        
+
+            var thisColor = Math.floor(Math.random() * (level.colors));
+            ans[i] = thisColor;
+
+            squaneTable = squaneTable + "<div  class='block size" + level.rows + " color" + thisColor + "' id='block" + i + "'></div>";
+            
         //alert(squaneTable);
+        //onmousedown='choiseDone(" + i + ");'
     }
+
     document.getElementById("gameTable").innerHTML = squaneTable;
+
+    for (var i = 0; i < cellCount; i++) {
+        (function () {
+            var elementaId = "";
+            var izvele = i;
+            elementaId = "block" + i;
+            var klucis = document.getElementById(elementaId);
+
+            klucis.addEventListener('touchstart',function(){
+                choiseDone(izvele);
+            },false);
+        }())
+    }
+
     var thisSpeed = speedData[level.speed];
     setTimeout(hideSquares, thisSpeed);
 }
@@ -95,10 +116,17 @@ function hideSquares() {
 }
 
 function startInvestigation() {
-    document.getElementById("currentPlace").innerHTML = "<div onmousedown='nextColor();' class='choise color" + gThisColor + "'></div>";
+    document.getElementById("currentPlace").innerHTML = "<div id='choiseButton' class='choise color" + gThisColor + "'></div>";
+    var bottomIcon = document.getElementById("choiseButton");
+    bottomIcon.addEventListener('touchstart',function(){
+        nextColor();
+    },false);
 }
 
 function choiseDone(i) {
+    //var thisBlock = this.id;
+
+   // alert(i);
     var choise = null;
     if ($("#block" + i).hasClass("color0")) choise = 0;
     else if ($("#block" + i).hasClass("color1")) choise = 1;
@@ -192,7 +220,12 @@ function gameOver(){
         gameOverText = gameOverText + "<h3 style='text-align:center; margin-top:5px;'>"+(thisLevel+1) + "</h3>";
     }
 
-    document.getElementById("gameTable").innerHTML = gameOverText + "<a href='game.html' class='again'>Spēlēt vēlreiz</a></div>";
+    document.getElementById("gameTable").innerHTML = gameOverText + "<span id='playAgain' class='again'>Spēlēt vēlreiz</span></div>";
+
+    var playAgainBut = document.getElementById("playAgain");
+    playAgainBut.addEventListener('touchstart',function(){
+        location.replace("game.html");
+    },false);
 }
 
 function generateLevelData(){ // level .rows .colors .speed
