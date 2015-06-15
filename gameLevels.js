@@ -75,7 +75,7 @@ function createSquares() {
     for (var i = 0; i < cellCount; i++) {
         var thisColor = Math.floor(Math.random() * (level.colors));
         ans[i] = thisColor;
-        squaneTable = squaneTable + "<div onclick='choiseDone(" + i + "," + thisLevel + ");' class='block size" + level.rows + " color" + thisColor + "' id='block" + i + "'></div>";
+        squaneTable = squaneTable + "<div onmousedown='choiseDone(" + i + "," + thisLevel + ");' class='block size" + level.rows + " color" + thisColor + "' id='block" + i + "'></div>";
         //alert(squaneTable);
     }
     document.getElementById("gameTable").innerHTML = squaneTable;
@@ -95,7 +95,7 @@ function hideSquares() {
 }
 
 function startInvestigation() {
-    document.getElementById("currentPlace").innerHTML = "<div onclick='nextColor();' class='choise color" + gThisColor + "'></div>";
+    document.getElementById("currentPlace").innerHTML = "<div onmousedown='nextColor();' class='choise color" + gThisColor + "'></div>";
 }
 
 function choiseDone(i) {
