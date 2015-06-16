@@ -219,13 +219,14 @@ function setScore(){
 
 function gameOver(){    
     
-    setScore();
     var lastBest = localStorage.getItem("mlvl");
 
     var timesPlayed = localStorage.getItem("totalgames");
     timesPlayed = parseInt(timesPlayed);
     timesPlayed+=1;
     localStorage.setItem("totalgames", timesPlayed);
+    
+    setScore();
 
     //localStorage.setItem("pos", pos);
     
