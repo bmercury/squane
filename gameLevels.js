@@ -227,16 +227,16 @@ function setScore(){
     var lastBestScore = localStorage.getItem("mscore");
     localStorage.setItem("mlvl", Math.max(thisLevel+1,lastBest) );
     localStorage.setItem("mscore", Math.max(maxScore,lastBestScore));
+    
+    var timesPlayed = localStorage.getItem("totalgames");
+    timesPlayed = parseInt(timesPlayed);
+    timesPlayed+=1;
+    localStorage.setItem("totalgames", timesPlayed);
 }
 
 function gameOver(){    
     
     var lastBest = localStorage.getItem("mlvl");
-
-    var timesPlayed = localStorage.getItem("totalgames");
-    timesPlayed = parseInt(timesPlayed);
-    timesPlayed+=1;
-    localStorage.setItem("totalgames", timesPlayed);
     
     setScore();
 
