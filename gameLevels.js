@@ -228,10 +228,13 @@ function setScore(){
     localStorage.setItem("mlvl", Math.max(thisLevel+1,lastBest) );
     localStorage.setItem("mscore", Math.max(maxScore,lastBestScore));
     
-    var timesPlayed = localStorage.getItem("totalgames");
+    
+    var timesPlayed = 0;
+    timesPlayed = localStorage.getItem("totalgames");
+    if( isNaN(timesPlayed) ) timesPlayed = 0;
     timesPlayed = parseInt(timesPlayed);
     timesPlayed+=1;
-    localStorage.setItem("totalgames", timesPlayed);
+    localStorage.setItem("totalgames", Math.max(timesPlayed,timesPlayed) );
 }
 
 function gameOver(){    
