@@ -8,41 +8,6 @@ var maxScore=0;
 
 var thisLevel = 0;
 
-function splash(n){
-    setTimeout(function(){
-        $(".splashScreen").fadeOut(300, function() {
-            location.replace("menu.html");
-        });
-    }, n);
-}
-
-function setBg(){
-    var bg = "";
-    var color = "";
-    
-    var bgColorDark = "#242424";
-    var bgColorLight = "#E8E8E8";
-    var colorDark = "#E8E8E8";
-    var colorLight = "#242424";
-    
-    var bgColor = "";
-    var color = "";
-    
-    if(localStorage.getItem("bg") === null){
-        localStorage.setItem("bg",0);
-    }
-    if(localStorage.getItem("bg") == 0){
-        bg=bgColorLight;
-        color=colorLight;
-    }else{
-        bg=bgColorDark;
-        color=colorDark;
-    }
-    $(document).ready(function(){
-        $("body").css('background-color', bg);
-        $("body").css('color', color);
-    });
-}
 
 var level = {
     rows: 2,
@@ -214,10 +179,8 @@ function chooseColor(){
 function nextColor(){
     if(squanesLeft>0){
         //alert("some squanes left");
-
         chooseColor();
         startInvestigation();
-        
         //alert(colorsLeft);
     }
 }

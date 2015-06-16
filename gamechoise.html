@@ -9,12 +9,14 @@
 		<meta charset="utf-8"/>
 		<title>Squane</title>
 	</head>
-	<body style="background-color:#1F1F1F;" onload="splash(1800);">
-	<!--Splash Screen-->
-	<div class="splashScreen">
-		<img src="images/squane-logo.png"/>
-		<h3 id="splashText">Reinards Jānis Saulītis<br>Niks Derums</h3>
-	</div>
-	<!--Splash Screen-->
+	<body onload="setBg()">
+		<img src="images/squane-logo.png" class="top-image">
+
+		<a href="game.html" style="background-image:url('images/square-blue.png');" class="buttons choisebut">
+			Sprints
+		</a>
+		<a href="marathon.html" style="background-image:url('images/square-red.png');" class="buttons choisebut">
+			Maratons
+		</a>
 	</body>
 </html>
