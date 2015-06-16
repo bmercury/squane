@@ -29,7 +29,17 @@ body {
 	border-radius: 4px;
 }
 .menubut{
-	margin-top: 10px;
+	margin-top: 25px;
+	color:#303030;
+	font-weight:bold;
+	text-decoration:none;
+	font-size:1.8em;
+
+	background-repeat: no-repeat;
+	background-size:auto 100%;
+}
+.choisebut{
+	margin-top: 40px;
 	color:#303030;
 	font-weight:bold;
 	text-decoration:none;
@@ -185,6 +195,18 @@ body {
 	display: block;
 	margin: auto;
 	border: none;
+	text-decoration: none;
+	text-align: center;
+}
+.startMarathonBut{
+	padding: 4%;
+	background-color: #007AD1;
+
+	font-size: 20px;
+	color:white;
+	width: 92%;
+	display: block;
+
 	text-decoration: none;
 	text-align: center;
 }
