@@ -1,6 +1,9 @@
 var thisLevel = -1;
 var maxColors = 5;
 var maxRows = 4;
+var gray = false;
+var gThisColor = 0;
+var squanesLeft = 0;
 
 var level = {
     rows: 2,
@@ -21,25 +24,42 @@ var speedData = [
     5750
 ];
 
+var squanesLeft = 0;
+
+var usedColors = [];
+var colorsLeft = 0;
+
 function chooseScreen(){
 	if( localStorage.getItem("timerCounting") !== null && localStorage.getItem("timerCounting")==1 ){
 		//alert("taimeris uzstādīts");
-		
-		$("#gameTable").css("background-color","white");
-		$("#gameTable").css("padding-top","10px");
-
 		var finTime = "";
-
 		var localAnswerTime = localStorage.getItem("answerTime");
 		localAnswerTime = parseInt( localAnswerTime );
 		var finDate = new Date( localAnswerTime );
+		var currentDate = new Date();
+		
+		if( currentDate.getTime() > finDate){
+			$("#gameTable").css("background-color","white");
+			$("#gameTable").css("padding-top","10px");
 
+			document.getElementById("gameTable").innerHTML = "<div style='text-align:center;'> <h2>Varat atbildēt!</h2> <span id='answerMarathon' class='startMarathonBut'>Atbildēt</span> </div>";
+			
+			answerMarathon.addEventListener('touchstart',function(){
+	            startAnswering();
+	        },false);
 
-		var realMonth = 10;
-		realMonth = finDate.getMonth() + 1;
-		finTime = finDate.getHours() + ":" + finDate.getMinutes() + ":" + finDate.getSeconds() + " " + finDate.getDate() + "/" + realMonth + "/" + finDate.getFullYear();
+		} else {
+			
+			$("#gameTable").css("background-color","white");
+			$("#gameTable").css("padding-top","10px");
 
-		document.getElementById("gameTable").innerHTML = "<div style='text-align:center;'> <h2>Atbildēt varēsiet</h2> <h2>" + finTime + "</h2> </div>";
+			
+			var realMonth = 10;
+			realMonth = finDate.getMonth() + 1;
+			finTime = finDate.getHours() + ":" + finDate.getMinutes() + ":" + finDate.getSeconds() + " " + finDate.getDate() + "/" + realMonth + "/" + finDate.getFullYear();
+
+			document.getElementById("gameTable").innerHTML = "<div style='text-align:center;'> <h2>Atbildēt varēsiet</h2> <h2>" + finTime + "</h2> </div>";
+		}
 
 	} else {
 		getCurrentLevel();
@@ -54,6 +74,21 @@ function chooseScreen(){
             tryToRemember();
         },false);
 	}
+}
+
+function startAnswering(){
+	localStorage.setItem("timerCounting",0)
+
+	$("#gameTable").css("background-color","transparent");
+
+	var squaneGrid = localStorage.getItem("squaneTable");
+
+	document.getElementById("gameTable").innerHTML = squaneGrid;
+
+
+	squanesLeft = 
+	hideSquares();
+
 }
 
 function tryToRemember(){
@@ -80,6 +115,20 @@ function createSquares() {
     }
 
     document.getElementById("gameTable").innerHTML = squaneTable;
+
+     for (var i = 0; i < cellCount; i++) {
+        (function () {
+            var elementaId = "";
+            var izvele = i;
+            elementaId = "block" + i;
+            var klucis = document.getElementById(elementaId);
+
+            klucis.addEventListener('touchstart',function(){
+                choiseDone(izvele);
+            },false);
+        }())
+    }
+
     localStorage.setItem("lvlTable",squaneTable);
 
     var thisSpeed = speedData[level.speed];
@@ -103,6 +152,85 @@ function hideSquares() {
     for (var i = 0; i < cellCount; i++) {
         var el = document.getElementById("block" + i);
         el.className = el.className + " no-color";
+    }
+    gray=true;
+    startInvestigation();
+}
+
+function startInvestigation() {
+    document.getElementById("currentPlace").innerHTML = "<div id='choiseButton' class='choise color" + gThisColor + "'></div>";
+    var bottomIcon = document.getElementById("choiseButton");
+    bottomIcon.addEventListener('touchstart',function(){
+        nextColor();
+    },false);
+}
+
+function choiseDone(i) {
+    //var thisBlock = this.id;
+
+   // alert(i);
+    var choise = null;
+    if ($("#block" + i).hasClass("color0")) choise = 0;
+    else if ($("#block" + i).hasClass("color1")) choise = 1;
+    else if ($("#block" + i).hasClass("color2")) choise = 2;
+    else if ($("#block" + i).hasClass("color3")) choise = 3;
+    else if ($("#block" + i).hasClass("color4")) choise = 4;
+
+    if (clicks[i] != 1 && gray) {
+        clicks[i] = 1;
+        squanesLeft--;
+        if (choise == gThisColor) {
+            // Izvēlēts pareizais kvadrārs
+            score += 1;
+            if(score > maxScore){
+                maxScore=score;
+            }
+        } else {
+            // Izvēlēts nepareizais kvadrārs
+            score += -2 * ( Math.floor(score / 10) +1 );
+        }
+    
+        document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
+        $("#block" + i).removeClass("no-color");
+
+        if(score<0){
+            gameOver();
+        }
+
+        if(squanesLeft<1){
+            thisLevel++;
+            mainLevelFunction();
+        }
+
+    }
+}
+function newColorPattern(){
+    colorsLeft = level.colors;
+    for(var i = 0; i<maxColors; i++){
+        usedColors[i] = 0;
+    }
+    chooseColor();
+}
+
+function chooseColor(){
+    //alert("izvelas krasu. palikusas " + colorsLeft);
+    if(colorsLeft>0){
+        gThisColor = Math.floor(Math.random() * level.colors);
+        while(usedColors[gThisColor]!=0){
+            gThisColor = Math.floor(Math.random() * level.colors);
+        }
+        usedColors[gThisColor] = 1;
+        colorsLeft--;
+    }
+    //alert(gThisColor);
+}
+
+function nextColor(){
+    if(squanesLeft>0){
+        //alert("some squanes left");
+        chooseColor();
+        startInvestigation();
+        //alert(colorsLeft);
     }
 }
 
@@ -150,18 +278,24 @@ function generateLevelData(){ // level .rows .colors .speed
             level.speed = Math.floor(Math.random() * 2);
         }
     }
+    saveLevel();
 }
 
 function getSavedLevel(){
 	var tmpRows = localStorage.getItem("lvlRows");
 	var tmpColors = localStorage.getItem("lvlColors");
 	var tmpSpeed = localStorage.getItem("lvlSpeed");
+
+	var tmpRowsShow = localStorage.getItem("lvlRowsShow");
+	var tmpColorsShow = localStorage.getItem("lvlColorsShow");
+	var tmpSpeedShow = localStorage.getItem("lvlSpeedShow");
+
 	if(tmpRows !== null){
 		if( !isNaN(tmpRows) ){
 
-			level.rows = tmpRows;
-			level.colors = tmpColors;
-			level.speed = tmpSpeed;
+			level.rows = tmpRowsShow;
+			level.colors = tmpColorsShow;
+			level.speed = tmpSpeedShow;
 
 			actualLevel.rows = tmpRows;
 			actualLevel.colors = tmpColors;
@@ -169,6 +303,15 @@ function getSavedLevel(){
 
 		}
 	}
+}
+function saveLevel(){
+	localStorage,setItem("lvlRows",actualLevel.rows);
+	localStorage,setItem("lvlColors",actualLevel.colors);
+	localStorage,setItem("lvlSpeed",actualLevel.speed);
+
+	localStorage,setItem("lvlRowsShow",level.rows);
+	localStorage,setItem("lvlColorsShow",level.colors);
+	localStorage,setItem("lvlSpeedShow",level.speed);
 }
 
 window.onload = function() {
