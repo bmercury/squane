@@ -1,9 +1,10 @@
-var thisLevel = -1;
+var thisLevel = 2;
 var maxColors = 5;
 var maxRows = 4;
 var gray = false;
 var gThisColor = 0;
 var squanesLeft = 0;
+var cellCount = 0;
 
 var level = {
     rows: 2,
@@ -25,9 +26,17 @@ var speedData = [
 ];
 
 var squanesLeft = 0;
+var clicks = [];
 
 var usedColors = [];
 var colorsLeft = 0;
+
+
+function resetSquares(n) {
+    for (var i = 0; i < n; i++) {
+        clicks[i] = 0;
+    }
+}
 
 function chooseScreen(){
 	if( localStorage.getItem("timerCounting") !== null && localStorage.getItem("timerCounting")==1 ){
@@ -77,16 +86,38 @@ function chooseScreen(){
 }
 
 function startAnswering(){
-	localStorage.setItem("timerCounting",0)
+	localStorage.setItem("timerCounting",0);
+
+	getSavedLevel();
 
 	$("#gameTable").css("background-color","transparent");
 
-	var squaneGrid = localStorage.getItem("squaneTable");
+	var squaneGrid = localStorage.getItem("lvlTable");
 
 	document.getElementById("gameTable").innerHTML = squaneGrid;
 
+	grey = true;
 
-	squanesLeft = 
+
+	squanesLeft = level.rows * level.rows;
+	cellCount = squanesLeft;
+	
+	for (var i = 0; i < cellCount; i++) {
+        (function () {
+            var elementaId = "";
+            var izvele = i;
+            elementaId = "block" + i;
+            var klucis = document.getElementById(elementaId);
+
+            klucis.addEventListener('touchstart',function(){
+                choiseDone(izvele);
+            },false);
+        }())
+    }
+
+    newColorPattern();
+
+	resetSquares(cellCount);
 	hideSquares();
 
 }
@@ -116,19 +147,6 @@ function createSquares() {
 
     document.getElementById("gameTable").innerHTML = squaneTable;
 
-     for (var i = 0; i < cellCount; i++) {
-        (function () {
-            var elementaId = "";
-            var izvele = i;
-            elementaId = "block" + i;
-            var klucis = document.getElementById(elementaId);
-
-            klucis.addEventListener('touchstart',function(){
-                choiseDone(izvele);
-            },false);
-        }())
-    }
-
     localStorage.setItem("lvlTable",squaneTable);
 
     var thisSpeed = speedData[level.speed];
@@ -139,7 +157,7 @@ function setUpTimer(){
 	var currentDate = new Date();
 	var time = currentDate.getTime();
 	//time += 600000;
-	time += 60000;
+	time += 6000;
 
 	localStorage.setItem("answerTime",parseInt(time));
 	localStorage.setItem("timerCounting",1);
@@ -176,30 +194,23 @@ function choiseDone(i) {
     else if ($("#block" + i).hasClass("color3")) choise = 3;
     else if ($("#block" + i).hasClass("color4")) choise = 4;
 
+    //alert(clicks[i] + " " + gray);
     if (clicks[i] != 1 && gray) {
+    	//alert("kliks registreets");
         clicks[i] = 1;
         squanesLeft--;
         if (choise == gThisColor) {
             // Izvēlēts pareizais kvadrārs
-            score += 1;
-            if(score > maxScore){
-                maxScore=score;
-            }
         } else {
             // Izvēlēts nepareizais kvadrārs
-            score += -2 * ( Math.floor(score / 10) +1 );
-        }
-    
-        document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
-        $("#block" + i).removeClass("no-color");
-
-        if(score<0){
             gameOver();
         }
+    
+        $("#block" + i).removeClass("no-color");
 
         if(squanesLeft<1){
-            thisLevel++;
-            mainLevelFunction();
+            //win
+            levelDone();
         }
 
     }
@@ -236,10 +247,31 @@ function nextColor(){
 
 function getCurrentLevel(){
 	thisLevel = localStorage.getItem("lvl");
-	if( isNaN(thisLevel) || thisLevel === null ){ // ja nav vēl spēlēts
+
+	if( isNaN(localStorage.getItem("lvl")) || localStorage.getItem("lvl") === null ){ // ja nav vēl spēlēts
 		thisLevel = 0;
 		localStorage.setItem("lvl",thisLevel);
+	} else {
+		thisLevel = parseInt(thisLevel);
 	}
+}
+
+function gameOver(){
+	localStorage.setItem("won",0);
+
+	document.getElementById("gameTable").innerHTML = "<h3 style='text-align:center'>Tu zaudēji!</h3><span id='reloadPage' class='startMarathonBut'>Mēģināt vēlreiz</span>";
+	document.getElementById("reloadPage").addEventListener('touchstart',function(){
+	    location.replace("marathon.html");
+	},false);
+}
+
+function levelDone(){
+	thisLevel+=1;
+	alert(thisLevel);
+	localStorage.setItem("lvl",thisLevel);
+	localStorage.setItem("timerCounting",0);
+
+	localStorage.setItem("won",1);
 }
 
 function generateLevelData(){ // level .rows .colors .speed
@@ -305,13 +337,13 @@ function getSavedLevel(){
 	}
 }
 function saveLevel(){
-	localStorage,setItem("lvlRows",actualLevel.rows);
-	localStorage,setItem("lvlColors",actualLevel.colors);
-	localStorage,setItem("lvlSpeed",actualLevel.speed);
+	localStorage.setItem("lvlRows",actualLevel.rows);
+	localStorage.setItem("lvlColors",actualLevel.colors);
+	localStorage.setItem("lvlSpeed",actualLevel.speed);
 
-	localStorage,setItem("lvlRowsShow",level.rows);
-	localStorage,setItem("lvlColorsShow",level.colors);
-	localStorage,setItem("lvlSpeedShow",level.speed);
+	localStorage.setItem("lvlRowsShow",level.rows);
+	localStorage.setItem("lvlColorsShow",level.colors);
+	localStorage.setItem("lvlSpeedShow",level.speed);
 }
 
 window.onload = function() {
