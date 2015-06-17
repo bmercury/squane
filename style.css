@@ -13,6 +13,7 @@ body {
 }
 .game-table {
 	width: 99%;
+	text-align: center;
 }
 .buttons{
 	width: 63%;
@@ -28,6 +29,25 @@ body {
 	display: block;
 	border-radius: 4px;
 }
+
+.circleBut{
+	display: inline-block !important;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	width:25px !important;
+	height:25px;
+	border-radius: 50%;
+	color: #E8E8E8;
+	padding: 10px;
+	vertical-align: middle;
+}
+.circleBut i{
+	vertical-align: middle;
+	padding-top: 3px;
+}
+
+
 .menubut{
 	margin-top: 25px;
 	color:#303030;
@@ -209,4 +229,32 @@ body {
 
 	text-decoration: none;
 	text-align: center;
+}
+#reloadPage{
+	display: inline-block;
+	text-align: center;
+	width:25px;
+	height:25px;
+	border-radius: 50%;
+	color: #E8E8E8;
+	padding: 10px;
+	vertical-align: middle;
+}
+#reloadPage i{
+	vertical-align: middle;
+	padding-top: 2px;
+}
+#openMenu{
+	display: inline-block;
+	text-align: center;
+	width:25px;
+	height:25px;
+	border-radius: 50%;
+	color: #E8E8E8;
+	padding: 10px;
+	vertical-align: middle;
+}
+#openMenu i{
+	vertical-align: middle;
+	padding-top: 3px;
 }

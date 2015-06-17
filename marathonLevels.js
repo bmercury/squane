@@ -1,4 +1,4 @@
-var thisLevel = 2;
+var thisLevel = 0;
 var maxColors = 5;
 var maxRows = 4;
 var gray = false;
@@ -48,18 +48,18 @@ function chooseScreen(){
 		var currentDate = new Date();
 		
 		if( currentDate.getTime() > finDate){
-			$("#gameTable").css("background-color","white");
+			$("#gameTable").css("background-color","#BDBDBD");
 			$("#gameTable").css("padding-top","10px");
 
-			document.getElementById("gameTable").innerHTML = "<div style='text-align:center;'> <h2>Varat atbildēt!</h2> <span id='answerMarathon' class='startMarathonBut'>Atbildēt</span> </div>";
+			document.getElementById("gameTable").innerHTML = "<div style='text-align:center;padding-bottom:25px;'> <h2>Vari atbildēt!</h2> <span id='answerMarathon' class='circleBut startMarathonBut'><i class='fa fa-play'></i></span> </div>";
 			
-			answerMarathon.addEventListener('touchstart',function(){
+			document.getElementById("answerMarathon").addEventListener('touchstart',function(){
 	            startAnswering();
 	        },false);
 
 		} else {
 			
-			$("#gameTable").css("background-color","white");
+			$("#gameTable").css("background-color","#BDBDBD");
 			$("#gameTable").css("padding-top","10px");
 
 			
@@ -67,7 +67,7 @@ function chooseScreen(){
 			realMonth = finDate.getMonth() + 1;
 			finTime = finDate.getHours() + ":" + finDate.getMinutes() + ":" + finDate.getSeconds() + " " + finDate.getDate() + "/" + realMonth + "/" + finDate.getFullYear();
 
-			document.getElementById("gameTable").innerHTML = "<div style='text-align:center;'> <h2>Atbildēt varēsiet</h2> <h2>" + finTime + "</h2> </div>";
+			document.getElementById("gameTable").innerHTML = "<div style='text-align:center;padding-bottom:25px;'> <h2>Atbildēt varēsi</h2> <h2>" + finTime + "</h2></div>";
 		}
 
 	} else {
@@ -75,11 +75,13 @@ function chooseScreen(){
 
 		var nextLevel = 0;
 		nextLevel = parseInt(thisLevel) + 1;
-		$("#gameTable").css("background-color","white");
+		$("#gameTable").css("background-color","#BDBDBD");
 		$("#gameTable").css("padding-top","10px");
 
-		document.getElementById("gameTable").innerHTML = "<div style='text-align:center;'><h2>Jūs esat izgājis <br>" + thisLevel + " <br>garos līmeņus.</h2><hr style='background-color:#E8E8E8;height:3px;border:none;'><h3 style='text-align:center;'>Vai mēģināsiet iziet " + nextLevel + ". garo līmeni?</h3></div><hr style='background-color:#E8E8E8;height:3px;border:none;margin-bottom:0px;'><span id='startMarathon' class='startMarathonBut'>Sākt spēli</span>";
-		startMarathon.addEventListener('touchstart',function(){
+		document.getElementById("lvl").innerHTML = "Līmenis: " + nextLevel;
+
+		document.getElementById("gameTable").innerHTML = "<div style='text-align:center;'><h2>Jūs esat izgājis <br>" + thisLevel + " <br>garos līmeņus.</h2><hr style='background-color:#E8E8E8;height:3px;border:none;'><h3 style='text-align:center;'>Vai mēģināsiet iziet " + nextLevel + ". garo līmeni?</h3></div><hr style='background-color:#E8E8E8;height:3px;border:none;margin-bottom:0px;'><span id='startMarathon' class='circleBut startMarathonBut'><i class='fa fa-play'></i></span></div>";
+		document.getElementById("startMarathon").addEventListener('touchstart',function(){
             tryToRemember();
         },false);
 	}
@@ -88,7 +90,7 @@ function chooseScreen(){
 function startAnswering(){
 	localStorage.setItem("timerCounting",0);
 
-	getSavedLevel();
+	getCurrentLevel();
 
 	$("#gameTable").css("background-color","transparent");
 
@@ -156,8 +158,8 @@ function createSquares() {
 function setUpTimer(){
 	var currentDate = new Date();
 	var time = currentDate.getTime();
-	//time += 600000;
-	time += 6000;
+	time += 600000;
+	//time += 600;
 
 	localStorage.setItem("answerTime",parseInt(time));
 	localStorage.setItem("timerCounting",1);
@@ -247,6 +249,8 @@ function nextColor(){
 
 function getCurrentLevel(){
 	thisLevel = localStorage.getItem("lvl");
+	thisLevel = parseInt(thisLevel);
+	//alert("got " + thisLevel);
 
 	if( isNaN(localStorage.getItem("lvl")) || localStorage.getItem("lvl") === null ){ // ja nav vēl spēlēts
 		thisLevel = 0;
@@ -257,17 +261,26 @@ function getCurrentLevel(){
 }
 
 function gameOver(){
-	localStorage.setItem("won",0);
+	gray = false;
+	
+	setTimeout(function(){
+		localStorage.setItem("won",0);
+		var gameOverText ="<h1 style='text-align:center;'>Tu atbildēji nepareizi!<h1><div style='width:94%;margin-left:3%;margin-right:3%;background-color:#333333;padding-top:4%;padding-bottom:4%;border-radius:4px;color:white;'><p style='text-align:center'>Mēģināsi vēlreiz?</p>";
 
-	document.getElementById("gameTable").innerHTML = "<h3 style='text-align:center'>Tu zaudēji!</h3><span id='reloadPage' class='startMarathonBut'>Mēģināt vēlreiz</span>";
-	document.getElementById("reloadPage").addEventListener('touchstart',function(){
-	    location.replace("marathon.html");
-	},false);
+    	document.getElementById("gameTable").innerHTML = gameOverText + "<span id='reloadPage' class='startMarathonBut'><i class='fa fa-repeat'></i></span><span style='margin-left:10px;' id='openMenu' class='startMarathonBut'><i class='fa fa-bars'></i></span></div>";
+		document.getElementById("currentPlace").innerHTML = "";
+		document.getElementById("reloadPage").addEventListener('touchstart',function(){
+		    location.replace("marathon.html");
+		},false);
+		document.getElementById("openMenu").addEventListener('touchstart',function(){
+		    location.replace("menu.html");
+		},false);
+	},2000);
 }
 
 function levelDone(){
 	thisLevel+=1;
-	alert(thisLevel);
+	//alert("set " + thisLevel);
 	localStorage.setItem("lvl",thisLevel);
 	localStorage.setItem("timerCounting",0);
 
@@ -278,38 +291,42 @@ function generateLevelData(){ // level .rows .colors .speed
 
 	getSavedLevel();
 
-    var maxSpeed = 4;
-    if(actualLevel.colors == 2) {
-        maxSpeed = 5;
-    }
-    ++actualLevel.speed;
+	var lastRes = localStorage.getItem("won");
+	if(lastRes==1){
 
-    if(actualLevel.speed==maxSpeed){
-        actualLevel.speed = 0;
-        actualLevel.colors++;
-    }
-    if(actualLevel.colors>maxColors){
-        actualLevel.colors = 2;
-        actualLevel.rows++;
-    }
-    if(actualLevel.rows==maxRows){
-        actualLevel.colors = maxColors-1;
-        actualLevel.rows--;
-    }
+	    var maxSpeed = 4;
+	    if(actualLevel.colors == 2) {
+	        maxSpeed = 5;
+	    }
+	    ++actualLevel.speed;
 
-    level.rows = actualLevel.rows;
-    level.colors = actualLevel.colors;
-    level.speed = actualLevel.speed;
+	    if(actualLevel.speed==maxSpeed){
+	        actualLevel.speed = 0;
+	        actualLevel.colors++;
+	    }
+	    if(actualLevel.colors>maxColors){
+	        actualLevel.colors = 2;
+	        actualLevel.rows++;
+	    }
+	    if(actualLevel.rows==maxRows){
+	        actualLevel.colors = maxColors-1;
+	        actualLevel.rows--;
+	    }
 
-    if(level>=8){
-        var thisCase = Math.floor(Math.random() * 7);
+	    level.rows = actualLevel.rows;
+	    level.colors = actualLevel.colors;
+	    level.speed = actualLevel.speed;
 
-        if(thisCase==1){
-            level.rows = 4;
-            level.colors = 2;
-            level.speed = Math.floor(Math.random() * 2);
-        }
-    }
+	    if(level>=8){
+	        var thisCase = Math.floor(Math.random() * 7);
+
+	        if(thisCase==1){
+	            level.rows = 4;
+	            level.colors = 2;
+	            level.speed = Math.floor(Math.random() * 2);
+	        }
+	    }
+	}
     saveLevel();
 }
 
