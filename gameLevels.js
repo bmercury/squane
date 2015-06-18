@@ -1,3 +1,32 @@
+function setBg(){
+    var bg = "";
+    var color = "";
+    
+    var bgColorDark = "#242424";
+    var bgColorLight = "#E8E8E8";
+    var colorDark = "#E8E8E8";
+    var colorLight = "#242424";
+    
+    var bgColor = "";
+    var color = "";
+    
+    if(localStorage.getItem("bg") === null){
+        localStorage.setItem("bg",0);
+    }
+    if(localStorage.getItem("bg") == 0){
+        bg=bgColorLight;
+        color=colorLight;
+    }else{
+        bg=bgColorDark;
+        color=colorDark;
+    }
+    $("body").css('background-color', bg);
+    $("body").css('color', color);
+
+}
+
+
+
 var score = 0;
 var gThisColor = 1;
 var gray = false;
@@ -266,5 +295,6 @@ function generateLevelData(){ // level .rows .colors .speed
 }
 
 window.onload = function() {
+    setBg();
     mainLevelFunction();
 }

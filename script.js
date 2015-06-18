@@ -28,8 +28,10 @@ function setBg(){
         bg=bgColorDark;
         color=colorDark;
     }
-    $(document).ready(function(){
-        $("body").css('background-color', bg);
-        $("body").css('color', color);
-    });
+    $("body").css('background-color', bg);
+    $("body").css('color', color);
+}
+
+window.onload = function() {
+    setBg();
 }
