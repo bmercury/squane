@@ -11,7 +11,7 @@ function setBg(){
     var color = "";
     
     if(localStorage.getItem("bg") === null){
-        localStorage.setItem("bg",0);
+        localStorage.setItem("bg",1);
     }
     if(localStorage.getItem("bg") == 0){
         bg=bgColorLight;
@@ -28,6 +28,7 @@ function setBg(){
 
 
 var score = 0;
+var mistakes = 0;
 var gThisColor = 1;
 var gray = false;
 var maxColors = 5;
@@ -167,6 +168,7 @@ function choiseDone(i) {
             }
         } else {
             // Izvēlēts nepareizais kvadrārs
+            mistakes+=1;
             score += -2 * ( Math.floor(score / 10) +1 );
         }
     
@@ -178,6 +180,8 @@ function choiseDone(i) {
         }
 
         if(squanesLeft<1){
+            if(mistakes==0)score+=10;
+            mistakes=0;
             thisLevel++;
             mainLevelFunction();
         }
