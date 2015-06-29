@@ -181,6 +181,7 @@ function choiseDone(i) {
 
         if(squanesLeft<1){
             if(mistakes==0)score+=10;
+            document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
             mistakes=0;
             thisLevel++;
             mainLevelFunction();
@@ -257,7 +258,7 @@ function gameOver(){
 
     var playAgainBut = document.getElementById("playAgain");
     playAgainBut.addEventListener('touchstart',function(){
-        location.replace("game.html");
+        location.replace("normal.html");
     },false);
 }
 

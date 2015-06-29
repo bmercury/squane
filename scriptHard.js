@@ -51,11 +51,11 @@ var actualLevel = {
 };
 
 var speedData = [
-    2000,
-    1500,
-    1000,
-    500,
-    250
+    1800,
+    1300,
+    800,
+    300,
+    150
 ];
 
 var clicks = [];
@@ -169,7 +169,7 @@ function choiseDone(i) {
         } else {
             // Izvēlēts nepareizais kvadrārs
             mistakes+=1;
-            score += -2 * ( Math.floor(score / 10) +1 );
+            score += -3 * ( Math.floor(score / 10) +1 );
         }
     
         document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
@@ -181,8 +181,9 @@ function choiseDone(i) {
 
         if(squanesLeft<1){
             if(mistakes==0)score+=10;
-            thisLevel++;
+            document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
             mistakes=0;
+            thisLevel++;
             mainLevelFunction();
         }
 
@@ -257,7 +258,7 @@ function gameOver(){
 
     var playAgainBut = document.getElementById("playAgain");
     playAgainBut.addEventListener('touchstart',function(){
-        location.replace("game.html");
+        location.replace("hard.html");
     },false);
 }
 
