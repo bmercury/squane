@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<link rel='stylesheet' type='text/css' href='style.css'/>
+		<script src="jquery.min.js"></script>
+		<script type="text/javascript" src="scriptTutorial.js"></script>
+		
+
+		<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no"/>
+		<meta charset="utf-8"/>
+		<title>Squane</title>
+	</head>
+	<body onload="main();">
+		<a href="menu.html"><img onclick="setScore();" src="images/squane-logo.png" class="top-image"></a>
+
+		<table style="width: 95%;margin-left:1%;margin-right:4%;">
+
+			<tr>
+				<td>
+					<b><p id="lvl" style="text-align:left;"></p></b>
+				</td>
+				<td>
+					<b><p id="score" style="text-align:right;"></p></b>
+				</td>
+			</tr>
+		</table>
+
+		<div class="game-table" id="gameTable"><div onclick="set('block0');" class="block size2 color0" id="block0"></div><div onclick="set('block1');" class="block size2 color0" id="block1"></div><div onclick="set('block2');" class="block size2 color0" id="block2"></div><div onclick="set('block3');" class="block size2 color0" id="block3"></div></div>
+
+		
+		<div id="currentPlace" align="center"><div id="choiseButton" class="choise color0"></div></div>
+
+		<div class="alerts">Tev ir noteikts laiks, kurā jāatceras visi klucīši. Pēc noteikta laika klucīši zaudē krāsu.<button onclick="hidemodal();">Labi</button></div>
+		<div class="black"></div>
+
+		<script type="text/javascript">
+			function setBg(){
+			    var bg = "";
+			    var color = "";
+			    
+			    var bgColorDark = "#242424";
+			    var bgColorLight = "#E8E8E8";
+			    var colorDark = "#E8E8E8";
+			    var colorLight = "#242424";
+			    
+			    var bgColor = "";
+			    var color = "";
+			    
+			    if(localStorage.getItem("bg") === null){
+			        localStorage.setItem("bg",1);
+			    }
+			    if(localStorage.getItem("bg") == 0){
+			        bg=bgColorLight;
+			        color=colorLight;
+			    }else{
+			        bg=bgColorDark;
+			        color=colorDark;
+			    }
+			    $("body").css('background-color', bg);
+			    $("body").css('color', color);
+
+			}
+			function hidemodal(){
+				$(".alerts").hide();
+				$(".black").hide();
+				hideIt();
+			}
+			function main(){
+				$("#currentPlace").hide();
+
+				setBg();
+			}
+		</script>
+	</body>
+</html>

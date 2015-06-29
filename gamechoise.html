@@ -9,7 +9,7 @@
 		<meta charset="utf-8"/>
 		<title>Squane</title>
 	</head>
-	<body>
+	<body onload="tutorial();">
 		<img src="images/squane-logo.png" class="top-image">
 
 		<a href="easy.html" style="background-image:url('images/square-blue.png');" class="buttons choisebut">
@@ -21,5 +21,14 @@
 		<a href="hard.html" style="background-image:url('images/square-green.png');" class="buttons choisebut">
 			Grūti
 		</a>
+		<script type="text/javascript">
+			function tutorial () {
+				tut = localStorage.getItem('tutorial');
+				if(tut==null || tut=='yes'){
+					localStorage.setItem('tutorial','no')
+					location.replace("tutorial.html");
+				}
+			}
+		</script>
 	</body>
 </html>
