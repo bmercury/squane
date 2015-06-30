@@ -19,7 +19,7 @@ function setBg(){
     var color = "";
     
     if(localStorage.getItem("bg") === null){
-        localStorage.setItem("bg",1);
+        localStorage.setItem("bg",0);
     }
     if(localStorage.getItem("bg") == 0){
         bg=bgColorLight;
