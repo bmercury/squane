@@ -19,7 +19,7 @@ function setBg(){
     var color = "";
     
     if(localStorage.getItem("bg") === null){
-        localStorage.setItem("bg",0);
+        localStorage.setItem("bg",1);
     }
     if(localStorage.getItem("bg") == 0){
         bg=bgColorLight;
@@ -30,6 +30,7 @@ function setBg(){
     }
     $("body").css('background-color', bg);
     $("body").css('color', color);
+
 }
 
 window.onload = function() {
