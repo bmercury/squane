@@ -19,7 +19,7 @@ function hideIt(){
     },2000);
     setTimeout(function(){
         $("#currentPlace").fadeIn(500);
-        $(".alerts").html("Tagad apakšā ir mazāks klucītis, kurš norāda pašreizējo krāsu. Ar šo krāsu ir jāuzspiež uz visiem tās krāsas klucīšiem.<button onclick='hidesecond();'>Labi</button>");
+        $(".alerts").html("Now there is small square in the bottom that tells current color. With this color you have to press on all squares in this color.<button onclick='hidesecond();'>Continue</button>");
         $(".alerts").fadeIn(500);
         $(".black").fadeIn(500);
     },2800);
@@ -31,7 +31,7 @@ function hidesecond(){
     $(".black").fadeOut(500);
 }
 function hidethird(){
-    $(".alerts").html("Tu esi izgājis pamācību. vairāk informācijas vari izlasīt pamācības sadaļā.<button onclick='home();'>Pabeigt</button>");
+    $(".alerts").html("Tutorial is over. Get more info in help section.<button onclick='home();'>Continue</button>");
 }
 
 function home(){
@@ -77,7 +77,7 @@ function set(id){
 function check(){
     if(b0 && b1 && b2 && b3){
         setTimeout(function(){
-            $(".alerts").html("Par pareizu atbildi saņem punktus par nepareizu - punkti nāk nost. Uz apakšējo klucīti var spiest, lai mainītu krāsu.<button onclick='hidethird();'>Labi</button>");
+            $(".alerts").html("When answer is correct - you get points, otherwise - you lose points. To change color, tap on small square .<button onclick='hidethird();'>Continue</button>");
             $(".alerts").fadeIn(500);
             $(".black").fadeIn(500);
         },1000);

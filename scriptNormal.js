@@ -72,7 +72,7 @@ function mainLevelFunction() {
     setTimeout(function(){
         generateLevelData();
         var displayLevel = (thisLevel+1);
-        document.getElementById("lvl").innerHTML = "Līmenis: " + displayLevel;
+        document.getElementById("lvl").innerHTML = "Level: " + displayLevel;
         resetSquares(level.rows * level.rows);
         document.getElementById("currentPlace").innerHTML = "";
         newColorPattern();
@@ -172,7 +172,7 @@ function choiseDone(i) {
             score += -2 * ( Math.floor(score / 10) +1 );
         }
     
-        document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
+        document.getElementById("score").innerHTML = "Score: " + Math.max(score,0);
         $("#block" + i).removeClass("no-color");
 
         if(score<0){
@@ -181,7 +181,7 @@ function choiseDone(i) {
 
         if(squanesLeft<1){
             if(mistakes==0)score+=10;
-            document.getElementById("score").innerHTML = "Punkti: " + Math.max(score,0);
+            document.getElementById("score").innerHTML = "Score: " + Math.max(score,0);
             mistakes=0;
             thisLevel++;
             mainLevelFunction();
@@ -244,17 +244,17 @@ function gameOver(){
     
     $("#currentPlace").hide();
 
-    var gameOverText ="<h1 style='text-align:center;'>Spēles beigas!<h1><div style='width:94%;margin-left:3%;margin-right:3%;background-color:#333333;padding-top:4%;border-radius:4px;color:white;'><p style='margin:0px;text-align:center'>Sasniegtais līmenis</p>";
+    var gameOverText ="<h1 style='text-align:center;'>Game Over!<h1><div style='width:94%;margin-left:3%;margin-right:3%;background-color:#333333;padding-top:4%;border-radius:4px;color:white;'><p style='margin:0px;text-align:center'>Level</p>";
 
 
     if( (thisLevel+1)>lastBest){
         gameOverText = gameOverText + "<h3 style='text-align:center;margin-top:15px; color:#FCCA00;'>&#9733; "+(thisLevel+1) + " &#9733;</h3>";
-        gameOverText = gameOverText + "<h4 style='text-align:center; margin-top:0px; color:#FCCA00;'>Jauns rekords!</h3>";
+        gameOverText = gameOverText + "<h4 style='text-align:center; margin-top:0px; color:#FCCA00;'>New Record!</h3>";
     } else {
         gameOverText = gameOverText + "<h3 style='text-align:center; margin-top:5px;'>"+(thisLevel+1) + "</h3>";
     }
 
-    document.getElementById("gameTable").innerHTML = gameOverText + "<span id='playAgain' class='again'>Spēlēt vēlreiz</span></div>";
+    document.getElementById("gameTable").innerHTML = gameOverText + "<span id='playAgain' class='again'>Play Again</span></div>";
 
     var playAgainBut = document.getElementById("playAgain");
     playAgainBut.addEventListener('touchstart',function(){
