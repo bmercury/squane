@@ -50,14 +50,20 @@ body {
 
 
 .menubut{
-	margin-top: 25px;
-	color:#303030;
-	font-weight:bold;
+	display: inline-block;
+	width: 35%;
+	padding-bottom: 35%;
+	margin: 5%;
+	text-align: middle;
 	text-decoration:none;
-	font-size:1.8em;
-
 	background-repeat: no-repeat;
 	background-size:auto 100%;
+}
+.menubox{
+	padding: 10%;
+}
+.divider{
+	height: 50px;
 }
 .choisebut{
 	margin-top: 40px;
