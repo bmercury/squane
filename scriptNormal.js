@@ -162,12 +162,20 @@ function choiseDone(i) {
         squanesLeft--;
         if (choise == gThisColor) {
             // Izvēlēts pareizais kvadrārs
+
+            var el = document.getElementById("block" + i);
+            el.className = el.className + " correctChoise";
+
             score += 1;
             if(score > maxScore){
                 maxScore=score;
             }
         } else {
             // Izvēlēts nepareizais kvadrārs
+
+            var el = document.getElementById("block" + i);
+            el.className = el.className + " incorrectChoise";
+
             mistakes+=1;
             score += -2 * ( Math.floor(score / 10) +1 );
         }
