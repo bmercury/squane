@@ -101,11 +101,13 @@ body {
 
 .correctChoise{
 	/*border: 2px solid #85DE3C;*/
-	outline:3px solid #85DE3C;
+	/*outline:3px solid #85DE3C;*/
+	box-shadow: inset 0px 0px 0px 5px #85DE3C;
 }
 .incorrectChoise{
 	/*border: 2px solid #DB5D32;*/
-	outline:3px solid #DB5D32;
+	/*outline:3px solid #DB5D32;*/
+	box-shadow: inset 0px 0px 0px 5px #DB5D32;
 }
 
 .size2{
