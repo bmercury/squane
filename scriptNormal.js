@@ -228,10 +228,20 @@ function nextColor(){
 }
 
 function setScore(){
+
+
+    var oldMoney = store.get("money");
+    if(oldMoney=="undefinded")oldMoney=0;
+
+    var money = String(maxScore).charAt(0);
+    //console.log(Number(money)+1);
+
     var lastBest = localStorage.getItem("mlvl");
     var lastBestScore = localStorage.getItem("mscore");
     localStorage.setItem("mlvl", Math.max(thisLevel+1,lastBest) );
     localStorage.setItem("mscore", Math.max(maxScore,lastBestScore));
+    
+    store.set("money",oldMoney+(Number(money)+1));
     
     
     var timesPlayed = 0;
