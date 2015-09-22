@@ -6,6 +6,13 @@ function splash(n){
     }, n);
 }
 
+function getMoney(){
+    if(localStorage.getItem("money") === null){
+        localStorage.setItem("money",0);
+    }
+    document.getElementById("moneyContent").innerHTML = localStorage.getItem("money");
+}
+
 function setBg(){
     var bg = "";
     var color = "";
@@ -35,4 +42,6 @@ function setBg(){
 
 window.onload = function() {
     setBg();
+
+    getMoney();
 }

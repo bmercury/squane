@@ -3,6 +3,7 @@
 		<link rel='stylesheet' type='text/css' href='style.css'/>
 		<script src="jquery.min.js"></script>
 		<script type="text/javascript" src="fabric.js"></script>
+		<script type="text/javascript" src="script.js"></script>
 		<script type="text/javascript" src="scriptNormal.js"></script>
 		
 
@@ -19,11 +20,29 @@
 				<td>
 					<b><p id="lvl" style="text-align:left;"></p></b>
 				</td>
-				<td>
-					<b><p id="score" style="text-align:right;"></p></b>
+				<td style="text-align:right;">
+					<b style="font-size:20px; text-align:right;">
+					<img width="22px" style="display:inline;vertical-align: top;" src="images/sqoin.png">
+					<span id="moneyContent" style="vertical-align:bottom;">0</span>
+					</b>
 				</td>
 			</tr>
 		</table>
+
+
+		<div class="scoreContainer">
+			<div id="score0" class="scoreLine" style="margin-top:0px;"></div>
+			<div id="score1" class="scoreLine"></div>
+			<div id="score2" class="scoreLine"></div>
+			<div id="score3" class="scoreLine"></div>
+			<div id="score4" class="scoreLine"></div>
+			<div id="score5" class="scoreLine"></div>
+			<div id="score6" class="scoreLine"></div>
+		</div>
+		<div class="scoreNameContainer" style="margin-top:-20px;">
+			<p id="score" style="margin:0px;text-align:center; font-weight:bold;">0</p>
+		</div>
+
 
 
 		<div class="game-table" id="gameTable">
@@ -33,6 +52,8 @@
 		<div id="currentPlace" align="center">
 			
 		</div>
+
+
 
 	</body>
 </html>

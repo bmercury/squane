@@ -11,7 +11,7 @@ function setBg(){
     var color = "";
     
     if(localStorage.getItem("bg") === null){
-        localStorage.setItem("bg",1);
+        localStorage.setItem("bg",0);
     }
     if(localStorage.getItem("bg") == 0){
         bg=bgColorLight;
@@ -58,6 +58,15 @@ var speedData = [
     750
 ];
 
+var colorData = [
+    "#68A0D9",
+    "#D96E68",
+    "#68D968",
+    "#D9CC68",
+    "#D968B7",
+];
+var colorCount = 5;
+
 var clicks = [];
 var squanesLeft = 0;
 
@@ -65,9 +74,10 @@ var usedColors = [];
 var colorsLeft = 0;
 
 function mainLevelFunction() {
-    
     var waitTime = 1500;
     if(thisLevel==0) waitTime = 0;
+
+    getMoney();
 
     setTimeout(function(){
         generateLevelData();
@@ -167,6 +177,7 @@ function choiseDone(i) {
             el.className = el.className + " correctChoise";
 
             score += 1;
+            //score =+ 10;
             if(score > maxScore){
                 maxScore=score;
             }
@@ -179,9 +190,19 @@ function choiseDone(i) {
             mistakes+=1;
             score += -2 * ( Math.floor(score / 10) +1 );
         }
-    
-        document.getElementById("score").innerHTML = "Score: " + Math.max(score,0);
+
         $("#block" + i).removeClass("no-color");
+    
+        document.getElementById("score").innerHTML = "" + Math.max(score,0);
+
+        for(var i = 0; i<colorCount; i++){
+            document.getElementById("score" + i).style.width = "0%";
+            document.getElementById("score" + i).style.width = Math.max(score,0) - 100*i + "%";
+            document.getElementById("score" + i).style.backgroundColor = colorData[i];
+        }
+        
+
+        
 
         if(score<0){
             gameOver();
@@ -189,7 +210,19 @@ function choiseDone(i) {
 
         if(squanesLeft<1){
             if(mistakes==0)score+=10;
-            document.getElementById("score").innerHTML = "Score: " + Math.max(score,0);
+            document.getElementById("score").innerHTML = "" + Math.max(score,0);
+
+            for(var i = 0; i<colorCount; i++){
+                document.getElementById("score" + i).style.width = "0%";
+                document.getElementById("score" + i).style.width = Math.max(score,0) - (100*i) + "%";
+                document.getElementById("score" + i).style.backgroundColor = colorData[i];
+            }
+
+            var currentMoney = localStorage.getItem("money");
+            currentMoney = Number(currentMoney) + Number(  (Math.floor(thisLevel / 2) +1 )  );
+            if(mistakes==0) currentMoney += 2;
+            localStorage.setItem("money",Number(currentMoney));
+
             mistakes=0;
             thisLevel++;
             mainLevelFunction();
@@ -229,19 +262,10 @@ function nextColor(){
 
 function setScore(){
 
-
-    var oldMoney = store.get("money");
-    if(oldMoney=="undefinded")oldMoney=0;
-
-    var money = String(maxScore).charAt(0);
-    //console.log(Number(money)+1);
-
     var lastBest = localStorage.getItem("mlvl");
     var lastBestScore = localStorage.getItem("mscore");
     localStorage.setItem("mlvl", Math.max(thisLevel+1,lastBest) );
     localStorage.setItem("mscore", Math.max(maxScore,lastBestScore));
-    
-    store.set("money",oldMoney+(Number(money)+1));
     
     
     var timesPlayed = 0;
@@ -320,4 +344,5 @@ function generateLevelData(){ // level .rows .colors .speed
 window.onload = function() {
     setBg();
     mainLevelFunction();
+    setScoreLineColors();
 }
