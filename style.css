@@ -126,12 +126,28 @@ body {
 .designPreviewBox{
 	display: inline-block;
 	background-color: white;
-	padding: 2px;
+	padding: 3px;
 	margin: 5px;
+	border-radius: 3px;
+	font-weight: bold;
+}
+.designPreviewBox span{
+	font-weight: bold;
+	text-align: top;
 }
 #previewBox{
 	margin-top: 30px;
 	text-align: center;
+}
+.hvntBought{
+	background-color: grey;
+	box-shadow: inset 0px 0px 0px 3px black;
+}
+.canBuy{
+	background-color: darkgrey;
+}
+.chosedDesCSS{
+	box-shadow: inset 0px 0px 0px 3px #3C9DDE;
 }
 
 
