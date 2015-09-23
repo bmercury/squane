@@ -119,6 +119,11 @@ body {
 	transition: all 0.3s;*/
 }
 
+.previewSquane{
+	width: 10%;
+}
+
+
 .correctChoise{
 	/*border: 2px solid #85DE3C;*/
 	/*outline:3px solid #85DE3C;*/
