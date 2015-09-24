@@ -182,11 +182,20 @@ function choiseDone(i) {
 
    // alert(i);
     var choise = null;
-    if ($("#block" + i).hasClass("color0")) choise = 0;
-    else if ($("#block" + i).hasClass("color1")) choise = 1;
-    else if ($("#block" + i).hasClass("color2")) choise = 2;
-    else if ($("#block" + i).hasClass("color3")) choise = 3;
-    else if ($("#block" + i).hasClass("color4")) choise = 4;
+    if(currentDesign==0){
+        if ($("#block" + i).hasClass("color0")) choise = 0;
+        else if ($("#block" + i).hasClass("color1")) choise = 1;
+        else if ($("#block" + i).hasClass("color2")) choise = 2;
+        else if ($("#block" + i).hasClass("color3")) choise = 3;
+        else if ($("#block" + i).hasClass("color4")) choise = 4;
+    }else{
+        if ($("#block" + i).hasClass("pack"+currentDesign+"_0")) choise = 0;
+        else if ($("#block" + i).hasClass("pack"+currentDesign+"_1")) choise = 1;
+        else if ($("#block" + i).hasClass("pack"+currentDesign+"_2")) choise = 2;
+        else if ($("#block" + i).hasClass("pack"+currentDesign+"_3")) choise = 3;
+        else if ($("#block" + i).hasClass("pack"+currentDesign+"_4")) choise = 4;
+    }
+    
 
     if (clicks[i] != 1 && gray) {
         clicks[i] = 1;
