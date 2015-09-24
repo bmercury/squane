@@ -1,3 +1,5 @@
+var currentDesign;
+
 function setBg(){
     var bg = "";
     var color = "";
@@ -25,7 +27,13 @@ function setBg(){
 
 }
 
-
+function setDesign(){
+    currentDesign = localStorage.getItem("chosedDesign");
+    if(currentDesign===null){
+        currentDesign=0;
+        localStorage.setItem("chosedDesign",0)
+    }
+}
 
 var score = 0;
 var mistakes = 0;
@@ -112,7 +120,11 @@ function createSquares() {
             var thisColor = Math.floor(Math.random() * (level.colors));
             ans[i] = thisColor;
 
-            squaneTable = squaneTable + "<div  class='block size" + level.rows + " color" + thisColor + "' id='block" + i + "'></div>";
+            if(currentDesign==0){
+                squaneTable = squaneTable + "<div  class='block size" + level.rows + " color" + thisColor + "' id='block" + i + "'></div>"; 
+            }else{
+                squaneTable = squaneTable + "<div  class='block size" + level.rows + " pack" + currentDesign +"_"+ thisColor + "' id='block" + i + "'></div>";
+            }
             
         //alert(squaneTable);
         //onmousedown='choiseDone(" + i + ");'
@@ -141,7 +153,12 @@ function hideSquares() {
     var cellCount = level.rows * level.rows;
     for (var i = 0; i < cellCount; i++) {
         var el = document.getElementById("block" + i);
-        el.className = el.className + " no-color";
+        if(currentDesign==0){
+            el.className = el.className + " no-color";
+        }else{
+            el.className = el.className + " pack"+currentDesign+"_no-color";
+        }
+        
     }
     
     gray=true;
@@ -149,7 +166,11 @@ function hideSquares() {
 }
 
 function startInvestigation() {
-    document.getElementById("currentPlace").innerHTML = "<div id='choiseButton' class='choise color" + gThisColor + "'></div>";
+    if(currentDesign==0){
+        document.getElementById("currentPlace").innerHTML = "<div id='choiseButton' class='choise color" + gThisColor + "'></div>";
+    }else{
+        document.getElementById("currentPlace").innerHTML = "<div id='choiseButton' class='choise pack"+currentDesign+"_" + gThisColor + "'></div>";
+    }
     var bottomIcon = document.getElementById("choiseButton");
     bottomIcon.addEventListener('touchstart',function(){
         nextColor();
@@ -191,7 +212,12 @@ function choiseDone(i) {
             score += -2 * ( Math.floor(score / 10) +1 );
         }
 
-        $("#block" + i).removeClass("no-color");
+        
+        if(currentDesign==0){
+            $("#block" + i).removeClass("no-color"); 
+        }else{
+            $("#block" + i).removeClass("pack"+currentDesign+"_no-color"); 
+        }
     
         document.getElementById("score").innerHTML = "" + Math.max(score,0);
 
@@ -343,6 +369,7 @@ function generateLevelData(){ // level .rows .colors .speed
 
 window.onload = function() {
     setBg();
+    setDesign();
     mainLevelFunction();
-    setScoreLineColors();
+    //setScoreLineColors();
 }
