@@ -334,7 +334,33 @@ function setScore(){
     localStorage.setItem("totalgames", Math.max(timesPlayed,timesPlayed) );
 }
 
-function gameOver(){    
+function achieve(){
+    var total_games = localStorage.getItem("totalgames");
+    var ach1 = store.get('ach_1');
+    var ach2 = store.get('ach_2');
+
+    if(total_games >= 10 && ach1.finished==false){
+        store.set('ach_1', { a_id: '0', condition: 'Play game 10 times', finished: true, reward: 10 });
+        
+        var lm = localStorage.getItem("money");
+        lm = parseInt(lm);
+        lm += parseInt(ach1.reward);
+        localStorage.setItem("money",lm);
+    }
+
+    if(thisLevel+1 >= 15 && ach2.finished==false){
+         store.set('ach_2', { a_id: '1', condition: 'Reach level 15', finished: true, reward: 16 });
+
+        var lm = localStorage.getItem("money");
+        lm = parseInt(lm);
+        lm += parseInt(ach2.reward);
+        localStorage.setItem("money",lm);
+    }
+}
+
+function gameOver(){
+
+    achieve();
     
     var lastBest = localStorage.getItem("mlvl");
     
