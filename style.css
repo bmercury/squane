@@ -403,3 +403,30 @@ body {
 	opacity: 0.8;
 	filter: alpha(opacity=80);
 }
+
+.achievements_box{
+	background-color: black;
+	margin-top: 20px;
+}
+
+.achievement{
+	background-color: #545454;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 5%;
+	padding-right: 5%;
+	width: 80%;
+	margin-left: 5%;
+	margin-right: 5%;
+	text-align: center;
+	border-radius: 4px;
+	border: 2px solid #DEDEDE;
+	color: #DEDEDE;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.finished{
+	border-color: #D8E3D8;
+	background-color: #B5F5B9;
+	color: #4A964F;
+}

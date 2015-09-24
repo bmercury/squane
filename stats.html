@@ -1,8 +1,9 @@
 <html>
 	<head>
 		<link rel='stylesheet' type='text/css' href='style.css'/>
-		<script type="text/javascript" src="fabric.js"></script>
 		<script src="jquery.min.js"></script>
+		<script type="text/javascript" src="store.js"></script>
+		<script type="text/javascript" src="achievements.js"></script>
 		<script type="text/javascript" src="script.js"></script>
 
 		<meta name="viewport" content="width=device-width, height=device-height, user-scalable=no"/>
@@ -18,15 +19,20 @@
 		height: 1px;
 	}
 	</style>
-	<body>
+	<body style="overflow-y:scroll;">
 		<a href="menu.html"><img src="images/squane-logo.png" class="top-image"></a>
 		<div style="text-align:left;color: #262626;" class="box">
 			<h2>Statistics</h2>
 			<div class="line"></div>
-			<h4><strong>Highest level:</strong> <span id="mlvl"></span></h4>
-			<h4><strong>Highscore:</strong> <span id="mscore"></span></h4>
-			<h4><strong>Total games played:</strong> <span id="totalgames"></span></h4>
-			<!--<h4><strong>Vidējais līmenis(100 spēlēs): </strong> <span id="aver"></span></h4>-->
+			<h4><b>Highest level:</b> <span id="mlvl"></span></h4>
+			<h4><b>Highscore:</b> <span id="mscore"></span></h4>
+			<h4><b>Total games played:</b> <span id="totalgames"></span></h4>
+
+		</div>
+
+		<div class="achievements_box">
+			<!--<div class="achievement finished">Play 100 times</div>
+			<div class="achievement">Play 100 times</div>-->
 		</div>
 
 		<script type="text/javascript">
