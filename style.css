@@ -178,50 +178,18 @@ body {
 	padding-bottom: 23%;
 }
 
-/* ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ */
-/* ■			    PACK DEFAULT                ■ */
-/* ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ */
 
 .color0{
-	background-image: url("images/square-blue.png");
 }
 .color1{
-	background-image: url("images/square-red.png");
 }
 .color2{
-	background-image: url("images/square-green.png");
 }
 .color3{
-	background-image: url("images/square-yellow.png");
 }
 .color4{
-	background-image: url("images/square-purple.png");
 }
 .no-color{
-	background-image: url("images/square-gray.png");
-}
-
-/* ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼ */
-/* ■				   PACK 1                   ■ */
-/* ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ */
-
-.pack1_0{
-	background-image: url("images/pack1/square-blue.png");
-}
-.pack1_1{
-	background-image: url("images/pack1/square-red.png");
-}
-.pack1_2{
-	background-image: url("images/pack1/square-green.png");
-}
-.pack1_3{
-	background-image: url("images/pack1/square-yellow.png");
-}
-.pack1_4{
-	background-image: url("images/pack1/square-purple.png");
-}
-.pack1_no-color{
-	background-image: url("images/pack1/square-gray.png");
 }
 
 #currentPlace{
@@ -234,7 +202,7 @@ body {
 	border-radius: 3px;
 	background-size: 100%;
 	display: inline-block;
-	width: 30%;
+	width: 30% !important;
 	padding-bottom: 30%;
 }
 .next-color{

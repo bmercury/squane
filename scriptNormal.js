@@ -88,6 +88,14 @@ function mainLevelFunction() {
     getMoney();
 
     setTimeout(function(){
+
+        if (waitTime>0) {
+            for(var i = 0; i<level.rows*level.rows; i++) {
+                $("#block" + i).removeClass("correctChoise");
+                $("#block" + i).removeClass("incorrectChoise");
+            }
+        };
+
         generateLevelData();
         var displayLevel = (thisLevel+1);
         document.getElementById("lvl").innerHTML = "Level: " + displayLevel;
@@ -108,10 +116,15 @@ function resetSquares(n) {
 var ans = [];
 
 function createSquares() {
+
     var cellCount = level.rows * level.rows;
+
+
 
     squanesLeft = cellCount;
     var squaneTable = "";
+
+    document.getElementById("gameTable").innerHTML = "";
 
     for (var i = 0; i < cellCount; i++) {
         
@@ -120,17 +133,29 @@ function createSquares() {
             var thisColor = Math.floor(Math.random() * (level.colors));
             ans[i] = thisColor;
 
-            if(currentDesign==0){
-                squaneTable = squaneTable + "<div  class='block size" + level.rows + " color" + thisColor + "' id='block" + i + "'></div>"; 
-            }else{
-                squaneTable = squaneTable + "<div  class='block size" + level.rows + " pack" + currentDesign +"_"+ thisColor + "' id='block" + i + "'></div>";
-            }
+            var colorName = "";
+            if(thisColor==0) colorName = "blue";
+            if(thisColor==1) colorName = "red";
+            if(thisColor==2) colorName = "green";
+            if(thisColor==3) colorName = "yellow";
+            if(thisColor==4) colorName = "purple";
+
+
+            squaneTable = "<div   class='block size" + level.rows + " color" + thisColor + "' id='block" + i + "'></div>"; 
             
+            var old = document.getElementById("gameTable").innerHTML;
+            document.getElementById("gameTable").innerHTML = old + " " + squaneTable;
+
+            var bgImgUrl = "url('images\/pack" + currentDesign + "\/square-" + colorName + ".png')";
+            //alert(bgImgUrl);
+            document.getElementById("block" + i).style.backgroundImage = bgImgUrl;
+
         //alert(squaneTable);
         //onmousedown='choiseDone(" + i + ");'
     }
 
-    document.getElementById("gameTable").innerHTML = squaneTable;
+
+    
 
     for (var i = 0; i < cellCount; i++) {
         (function () {
@@ -153,11 +178,7 @@ function hideSquares() {
     var cellCount = level.rows * level.rows;
     for (var i = 0; i < cellCount; i++) {
         var el = document.getElementById("block" + i);
-        if(currentDesign==0){
-            el.className = el.className + " no-color";
-        }else{
-            el.className = el.className + " pack"+currentDesign+"_no-color";
-        }
+        el.style.backgroundImage = "url('images\/pack" + currentDesign + "\/square-gray.png')";
         
     }
     
@@ -166,12 +187,20 @@ function hideSquares() {
 }
 
 function startInvestigation() {
-    if(currentDesign==0){
-        document.getElementById("currentPlace").innerHTML = "<div id='choiseButton' class='choise color" + gThisColor + "'></div>";
-    }else{
-        document.getElementById("currentPlace").innerHTML = "<div id='choiseButton' class='choise pack"+currentDesign+"_" + gThisColor + "'></div>";
-    }
+
+    //alert("izvelas apaksu");
+    
+    document.getElementById("currentPlace").innerHTML = "<div id='choiseButton' class='choise'></div>";
+
+    var colorName = "";
+    if(gThisColor==0) colorName = "blue";
+    if(gThisColor==1) colorName = "red";
+    if(gThisColor==2) colorName = "green";
+    if(gThisColor==3) colorName = "yellow";
+    if(gThisColor==4) colorName = "purple";
+    document.getElementById("choiseButton").style.backgroundImage = "url('images\/pack" + currentDesign + "\/square-" + colorName + ".png')";
     var bottomIcon = document.getElementById("choiseButton");
+
     bottomIcon.addEventListener('touchstart',function(){
         nextColor();
     },false);
@@ -182,20 +211,11 @@ function choiseDone(i) {
 
    // alert(i);
     var choise = null;
-    if(currentDesign==0){
-        if ($("#block" + i).hasClass("color0")) choise = 0;
-        else if ($("#block" + i).hasClass("color1")) choise = 1;
-        else if ($("#block" + i).hasClass("color2")) choise = 2;
-        else if ($("#block" + i).hasClass("color3")) choise = 3;
-        else if ($("#block" + i).hasClass("color4")) choise = 4;
-    }else{
-        if ($("#block" + i).hasClass("pack"+currentDesign+"_0")) choise = 0;
-        else if ($("#block" + i).hasClass("pack"+currentDesign+"_1")) choise = 1;
-        else if ($("#block" + i).hasClass("pack"+currentDesign+"_2")) choise = 2;
-        else if ($("#block" + i).hasClass("pack"+currentDesign+"_3")) choise = 3;
-        else if ($("#block" + i).hasClass("pack"+currentDesign+"_4")) choise = 4;
-    }
-    
+    if ($("#block" + i).hasClass("color0")) choise = 0;
+    else if ($("#block" + i).hasClass("color1")) choise = 1;
+    else if ($("#block" + i).hasClass("color2")) choise = 2;
+    else if ($("#block" + i).hasClass("color3")) choise = 3;
+    else if ($("#block" + i).hasClass("color4")) choise = 4;
 
     if (clicks[i] != 1 && gray) {
         clicks[i] = 1;
@@ -221,12 +241,15 @@ function choiseDone(i) {
             score += -2 * ( Math.floor(score / 10) +1 );
         }
 
-        
-        if(currentDesign==0){
-            $("#block" + i).removeClass("no-color"); 
-        }else{
-            $("#block" + i).removeClass("pack"+currentDesign+"_no-color"); 
-        }
+
+        var colorName = "";
+        if(choise==0) colorName = "blue";
+        if(choise==1) colorName = "red";
+        if(choise==2) colorName = "green";
+        if(choise==3) colorName = "yellow";
+        if(choise==4) colorName = "purple";
+
+        document.getElementById("block"+i).style.backgroundImage = "url('images\/pack" + currentDesign + "\/square-" + colorName + ".png')";
     
         document.getElementById("score").innerHTML = "" + Math.max(score,0);
 
