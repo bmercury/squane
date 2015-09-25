@@ -134,6 +134,7 @@ body {
 	border-radius: 3px;
 	font-weight: bold;
 	overflow: hidden;
+	font-family: Tahoma, Geneva, sans-serif;
 }
 .designPreviewBox > *{
 	font-weight: bold;
