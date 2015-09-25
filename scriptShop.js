@@ -57,11 +57,15 @@ function showDesigns(){
 
     for(var  i = 0; i<totalDesignCount; i++){
         var chosedDes = "";
+        //var underText = "<b style=\"color: darkgreen;\">Choose</b>";
+        var underText = "<img width=\"30px\" src=\"images/choose.png\">";
         if(i==chosedDesign){
             chosedDes = " chosedDesCSS";
+            //underText  = "<b style=\"color: darkgreen;\">Current</b>";
+            underText = "<img width=\"30px\" src=\"images/current.png\">";
         } 
 
-        var underText = "<b style=\"color: darkgreen;\">Bought</b>";
+        
         var haventBoughtClass = "";
         if(i>=boughtDesigns){
             underText = "<img width=\"15px\" style=\"display:inline;vertical-align: middle;\" src=\"images/sqoin.png\"> " + cost[i]; 

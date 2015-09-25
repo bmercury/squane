@@ -128,6 +128,7 @@ body {
 	display: inline-block;
 	background-color: white;
 	padding: 3px;
+	padding-bottom: 5px;
 	margin: 5px;
 	border-radius: 3px;
 	font-weight: bold;
@@ -148,7 +149,7 @@ body {
 	background-color: darkgrey;
 }
 .chosedDesCSS{
-	box-shadow: inset 0px 0px 0px 3px #3C9DDE;
+	box-shadow: inset 0px 0px 0px 3px #04B32F;
 }
 
 
