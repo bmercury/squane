@@ -414,6 +414,7 @@ function generateLevelData(){ // level .rows .colors .speed
 
     if(thisLevel>=8){
         var thisCase = Math.floor(Math.random() * 7);
+        //var thisCase = Math.floor(Math.random() * 2);
 
         if(thisCase==1){
             level.rows = 4;
