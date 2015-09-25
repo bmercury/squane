@@ -131,9 +131,9 @@ body {
 	border-radius: 3px;
 	font-weight: bold;
 }
-.designPreviewBox span{
+.designPreviewBox > *{
 	font-weight: bold;
-	text-align: top;
+	vertical-align: top;
 }
 #previewBox{
 	margin-top: 30px;
