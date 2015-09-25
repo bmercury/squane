@@ -59,6 +59,8 @@ function showDesigns(){
 
     for(var  i = 0; i<totalDesignCount; i++){
         var chosedDes = "";
+
+
         //var underText = "<b style=\"color: darkgreen;\">Choose</b>";
         var underText = "<img width=\"30px\" src=\"images/choose.png\">";
         if(i==chosedDesign){
@@ -78,7 +80,13 @@ function showDesigns(){
             haventBoughtClass = " canBuy";
         }
 
-        var anotherDesign = "<div onclick=\"chooseDes(" + i + ");\" class=\"designPreviewBox" + chosedDes + haventBoughtClass + "\"> <table><tr><td><img class=\"previewSquane\" src=\" images/pack" + i + "/square-blue.png \"></img> </td><td><img class=\"previewSquane\" src=\" images/pack" + i + "/square-red.png \"></img> </td></tr><tr><td><img class=\"previewSquane\" src=\" images/pack" + i + "/square-green.png \"></img> </td><td><img class=\"previewSquane\" src=\" images/pack" + i + "/square-yellow.png \"></img> </td></tr></table> <span>" + underText + "</span> </div>";        catalog = catalog + anotherDesign;
+        var table = "<table><tr><td><img class=\"previewSquane\" src=\" images/pack" + i + "/square-blue.png \"></img> </td><td><img class=\"previewSquane\" src=\" images/pack" + i + "/square-red.png \"></img> </td></tr><tr><td><img class=\"previewSquane\" src=\" images/pack" + i + "/square-green.png \"></img> </td><td><img class=\"previewSquane\" src=\" images/pack" + i + "/square-yellow.png \"></img> </td></tr></table>";
+
+        if(i>boughtDesigns){
+            table = "<img style='display:table;' width='90px' src='images/lock.png'>"
+        }
+
+        var anotherDesign = "<div onclick=\"chooseDes(" + i + ");\" class=\"designPreviewBox" + chosedDes + haventBoughtClass + "\"> " + table + " <span>" + underText + "</span> </div>";        catalog = catalog + anotherDesign;
     }
     document.getElementById("previewBox").innerHTML = catalog;
 }
