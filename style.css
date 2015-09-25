@@ -127,11 +127,13 @@ body {
 .designPreviewBox{
 	display: inline-block;
 	background-color: white;
+	box-shadow: inset 0px 0px 0px 3px white;
 	padding: 3px;
 	padding-bottom: 5px;
 	margin: 5px;
 	border-radius: 3px;
 	font-weight: bold;
+	overflow: hidden;
 }
 .designPreviewBox > *{
 	font-weight: bold;
@@ -144,12 +146,18 @@ body {
 .hvntBought{
 	background-color: grey;
 	box-shadow: inset 0px 0px 0px 3px black;
+	padding: 3px;
+	padding-bottom: 5px;
 }
 .canBuy{
 	background-color: darkgrey;
+	padding: 3px;
+	padding-bottom: 5px;
+	box-shadow: inset 0px 0px 0px 3px darkgrey;
 }
 .chosedDesCSS{
 	box-shadow: inset 0px 0px 0px 3px #04B32F;
+
 }
 
 

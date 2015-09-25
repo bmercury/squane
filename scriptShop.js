@@ -1,5 +1,7 @@
 
 var totalDesignCount = 4;
+
+
 var boughtDesigns = 0;
 var chosedDesign = 0;
 
