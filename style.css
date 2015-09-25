@@ -151,16 +151,15 @@ body {
 	padding-bottom: 5px;
 }
 .canBuy{
-	background-color: darkgrey;
+	background-color: white;
 	padding: 3px;
 	padding-bottom: 5px;
 	box-shadow: inset 0px 0px 0px 3px darkgrey;
 }
 .chosedDesCSS{
 	box-shadow: inset 0px 0px 0px 3px #04B32F;
-
+	background-color: #D5F2DB;
 }
-
 
 .correctChoise{
 	/*border: 2px solid #85DE3C;*/
@@ -397,7 +396,7 @@ body {
 	width: 80%;
 	margin-left: 5%;
 	margin-right: 5%;
-	text-align: center;
+	text-align: left;
 	border-radius: 4px;
 	border: 2px solid #DEDEDE;
 	color: #DEDEDE;
@@ -405,7 +404,18 @@ body {
 	margin-bottom: 10px;
 }
 .finished{
-	border-color: #D8E3D8;
+	border-color: #49A35A;
 	background-color: #B5F5B9;
 	color: #4A964F;
+
+	background-image: url("images/ach_done.png");
+	background-repeat: no-repeat;
+	background-position: 98%;
+	background-size: 40px;
+}
+.ach_def{
+	background-image: url("images/ach_def.png");
+	background-repeat: no-repeat;
+	background-position: 98%;
+	background-size: 40px;
 }

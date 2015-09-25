@@ -338,6 +338,7 @@ function achieve(){
     var total_games = localStorage.getItem("totalgames");
     var ach1 = store.get('ach_1');
     var ach2 = store.get('ach_2');
+    var ach3 = store.get('ach_3');
 
     if(total_games >= 10 && ach1.finished==false){
         store.set('ach_1', { a_id: '0', condition: 'Play game 10 times', finished: true, reward: 10 });
@@ -348,6 +349,15 @@ function achieve(){
         localStorage.setItem("money",lm);
     }
 
+    if(thisLevel+1 >= 25 && ach3.finished==false){
+         store.set('ach_3', { a_id: '2', condition: 'Reach level 25', finished: true, reward: 35 });
+
+        var lm = localStorage.getItem("money");
+        lm = parseInt(lm);
+        lm += parseInt(ach3.reward);
+        localStorage.setItem("money",lm);
+
+    }
     if(thisLevel+1 >= 15 && ach2.finished==false){
          store.set('ach_2', { a_id: '1', condition: 'Reach level 15', finished: true, reward: 16 });
 
@@ -355,6 +365,15 @@ function achieve(){
         lm = parseInt(lm);
         lm += parseInt(ach2.reward);
         localStorage.setItem("money",lm);
+    }
+}
+
+function endGame() {
+    if(thisLevel+1 > 5){
+        gameOver();
+         setTimeout(function(){ location.replace("menu.html") }, 3000);
+    }else{
+        location.replace("menu.html");
     }
 }
 
