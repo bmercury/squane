@@ -1,13 +1,13 @@
 
-var totalDesignCount = 3;
+var totalDesignCount = 4;
 var boughtDesigns = 0;
 var chosedDesign = 0;
 
 var cost = [
     0,
-    100,
     200,
-    400,
+    300,
+    500,
     500
 ];
 
