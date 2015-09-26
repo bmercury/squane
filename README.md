@@ -1,2 +1,2 @@
 # Squane
-<strong>Phone application</strong> that trains both long and short term memory using colored squares in different combinations.
+<strong>Android application</strong> that trains short term memory using colored squares in different combinations. 
