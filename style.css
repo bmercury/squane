@@ -125,14 +125,16 @@ h2{
 }
 
 #addedMoney{
-	padding-left: 20px;
+	/*padding-left: 20px;*/
+	float:left;
 }
 
 #moneyDiv{
 	font-weight: bold;
 	font-size: 20px;
 	color:#D6BA00;
-	margin-left: 20px; 
+	/*margin-left: 20px; */
+	text-align: center;
 }
 
 
