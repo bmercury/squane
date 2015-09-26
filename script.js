@@ -6,6 +6,14 @@ function splash(n){
     }, n);
 }
 
+function testForTut(){
+    //alert("tst");
+    if(localStorage.getItem("havePlayed")===null){
+        localStorage.setItem("havePlayed",1);
+        window.location = "tutorial.html";
+    }
+}
+
 function getMoney(){
     if(localStorage.getItem("money") === null){
         localStorage.setItem("money",0);
@@ -42,6 +50,6 @@ function setBg(){
 
 window.onload = function() {
     setBg();
-    loadAchievements();
+    /*loadAchievements();*/
     getMoney();
 }

@@ -1,5 +1,5 @@
 
-var totalDesignCount = 5;
+var totalDesignCount = 6;
 
 
 var boughtDesigns = 0;
@@ -9,8 +9,18 @@ var cost = [
     0,
     200,
     300,
+    400,
     500,
-    500
+    600
+];
+
+var names = [
+    "Classic",
+    "Nature",
+    "Simple",
+    "Dots",
+    "Planets",
+    "Freedom?"
 ];
 
 
@@ -44,6 +54,8 @@ function chooseDes(i){
             localStorage.setItem("boughtDesigns",boughtDesigns);
             localStorage.setItem( "money" , localStorage.getItem("money") - cost[i] );
 
+            
+//--------------------------------------------------------------------------------------ACHIEVMENT-------------------
             var ach4 = store.get('ach_4');
             var aPro = ach4.progress;
             var aTar = ach4.a_target;
@@ -61,6 +73,7 @@ function chooseDes(i){
             }else{
                 store.set('ach_4', { a_id: '3', condition: 'Buy 2 designs', finished: false, reward: 100, progress: aPro, a_target: 2 });
             }
+//--------------------------------------------------------------------------------------------------------------------
         }   
 
     }
@@ -104,7 +117,7 @@ function showDesigns(){
             table = "<img style='display:table;' width='90px' src='images/lock.png'>"
         }
 
-        var anotherDesign = "<div onclick=\"chooseDes(" + i + ");\" class=\"designPreviewBox" + chosedDes + haventBoughtClass + "\"> " + table + " <span>" + underText + "</span> </div>";        catalog = catalog + anotherDesign;
+        var anotherDesign = "<div onclick=\"chooseDes(" + i + ");\" class=\"designPreviewBox" + chosedDes + haventBoughtClass + "\"> <b>" + names[i] + "</b>" + table + " <span>" + underText + "</span> </div>";        catalog = catalog + anotherDesign;
     }
     document.getElementById("previewBox").innerHTML = catalog;
 }

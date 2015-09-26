@@ -35,6 +35,12 @@ function setDesign(){
     }
 }
 
+function slowDisappear(){
+    setTimeout(function(){
+        $("#moneyDiv").fadeOut(500);
+    },700);
+}
+
 var score = 0;
 var mistakes = 0;
 var gThisColor = 1;
@@ -277,8 +283,16 @@ function choiseDone(i) {
             }
 
             var currentMoney = localStorage.getItem("money");
-            currentMoney = Number(currentMoney) + Number(  (Math.floor(thisLevel / 2) +1 )  );
-            if(mistakes==0) currentMoney += 2;
+            var newMoney = Number(currentMoney) + Number(  (Math.floor(score / 10) +1 )  );
+            
+            var outputMoney = " +" + (newMoney-currentMoney) + " "; 
+
+            currentMoney = newMoney;
+
+            document.getElementById("addedMoney").innerHTML = "<div id=\"moneyDiv\">        " + outputMoney + " </div>";
+            $("#moneyDiv").show();
+            slowDisappear();
+
             localStorage.setItem("money",Number(currentMoney));
 
             mistakes=0;

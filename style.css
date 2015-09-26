@@ -8,6 +8,10 @@ body {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
 	z-index: 100;
 }
+
+h2{
+	text-align: center;
+}
 .top-image {
 	width: 98%;
 	padding: 1%;
@@ -120,6 +124,18 @@ body {
 	transition: all 0.3s;*/
 }
 
+#addedMoney{
+	padding-left: 20px;
+}
+
+#moneyDiv{
+	font-weight: bold;
+	font-size: 20px;
+	color:#D6BA00;
+	margin-left: 20px; 
+}
+
+
 .previewSquane{
 	width: 40px;
 }
@@ -135,6 +151,7 @@ body {
 	font-weight: bold;
 	overflow: hidden;
 	font-family: Tahoma, Geneva, sans-serif;
+	vertical-align: top;
 }
 .designPreviewBox > *{
 	font-weight: bold;
