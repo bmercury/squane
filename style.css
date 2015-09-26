@@ -126,7 +126,8 @@ h2{
 
 #addedMoney{
 	/*padding-left: 20px;*/
-	float:left;
+	/*float:left;*/
+	text-align: right;
 }
 
 #moneyDiv{
@@ -134,7 +135,8 @@ h2{
 	font-size: 20px;
 	color:#D6BA00;
 	/*margin-left: 20px; */
-	text-align: center;
+	display: inline;
+	text-align: right;
 }
 
 
