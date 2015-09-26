@@ -151,14 +151,13 @@ body {
 	padding-bottom: 5px;
 }
 .canBuy{
-	background-color: white;
+	background-color: darkgrey;
 	padding: 3px;
 	padding-bottom: 5px;
 	box-shadow: inset 0px 0px 0px 3px darkgrey;
 }
 .chosedDesCSS{
 	box-shadow: inset 0px 0px 0px 3px #04B32F;
-	background-color: #D5F2DB;
 }
 
 .correctChoise{
