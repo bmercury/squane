@@ -51,5 +51,5 @@ function setBg(){
 window.onload = function() {
     setBg();
     /*loadAchievements();*/
-    getMoney();
+
 }
