@@ -124,6 +124,26 @@ h2{
 	transition: all 0.3s;*/
 }
 
+.tutText{
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	font-size: 16pt;
+}
+.tutText img{
+	border: 2px solid grey;
+	width: 98%;
+}
+#tutBut{
+	background-color: lightblue;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-decoration: none;
+	color: black;
+	display: block;
+	text-align: center;
+	width: 98%;
+}
+
 #addedMoney{
 	/*padding-left: 20px;*/
 	/*float:left;*/
