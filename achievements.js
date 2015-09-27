@@ -1,19 +1,33 @@
 var achievements_count = 4;
 
+var texts = [
+    "Play game 10 times",
+    "Reach level 15",
+    "Reach level 25",
+    "Buy 2 designs"
+];
+
+var rewards = [
+    5,
+    12,
+    35,
+    100
+];
+
 function loadAchievements(){
     if(store.get("achievements_loaded")==undefined){
         store.set("achievements_loaded",true);
 
-        store.set('ach_1', { a_id: '0', condition: 'Play game 10 times', finished: false, reward: 5, progress: -1 });
-        store.set('ach_2', { a_id: '1', condition: 'Reach level 15', finished: false, reward: 12, progress: -1 });
-        store.set('ach_3', { a_id: '2', condition: 'Reach level 25', finished: false, reward: 35, progress: -1 });
-        store.set('ach_4', { a_id: '3', condition: 'Buy 2 designs', finished: false, reward: 100, progress: 0, a_target: 2 });
+        store.set('ach_1', { a_id: '0', finished: false, progress: -1 });
+        store.set('ach_2', { a_id: '1', finished: false, progress: -1 });
+        store.set('ach_3', { a_id: '2', finished: false, progress: -1 });
+        store.set('ach_4', { a_id: '3', finished: false, progress: 0, a_target: 2 });
     }
 
     for(var i=1;i<=achievements_count;++i){
 
         var achievement = store.get('ach_'+i);
-        var aTxt = achievement.condition;
+        var aTxt = texts[i-1];
         var aFinished = achievement.finished;
         var aId = i;
         var aPro = achievement.progress;
@@ -34,9 +48,9 @@ function loadAchievements(){
 function togTxt(i){
     var achievement = store.get('ach_'+i);
     // alert(achievement.a_id);
-    var aTxt = achievement.condition;
+    var aTxt = texts[i-1];
     var aFinished = achievement.finished;
-    var aReward = achievement.reward;
+    var aReward = rewards[i-1];
     var aPro = achievement.progress;
     var aTar = achievement.a_target;
 

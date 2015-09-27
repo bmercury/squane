@@ -65,17 +65,15 @@ function chooseDes(i){
             var aTar = ach4.a_target;
             aPro=parseInt(aPro);
             aPro+=1;
-            console.log(aPro);
+
             if(aPro == aTar){
-                store.set('ach_4', { a_id: '3', condition: 'Buy 2 designs', finished: true, reward: 100, progress: aPro, a_target: 2 });
-                
+                store.set('ach_4', { a_id: '3', finished: true, progress: aPro, a_target: 2 });
+
                 var curMoney = localStorage.getItem("money");
                 curMoney = parseInt(curMoney);
-                var aRew = ach4.reward;
-                aRew = parseInt(aRew);
-                localStorage.setItem("money", curMoney+aRew );
+                localStorage.setItem("money", curMoney+100 );
             }else{
-                store.set('ach_4', { a_id: '3', condition: 'Buy 2 designs', finished: false, reward: 100, progress: aPro, a_target: 2 });
+                store.set('ach_4', { a_id: '3', finished: true, progress: aPro, a_target: 2 });
             }
 //--------------------------------------------------------------------------------------------------------------------
         }   

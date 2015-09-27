@@ -1,5 +1,12 @@
 var currentDesign;
 
+var rewards = [
+    5,
+    12,
+    35,
+    100
+];
+
 function setBg(){
     var bg = "";
     var color = "";
@@ -355,29 +362,29 @@ function achieve(){
     var ach3 = store.get('ach_3');
 
     if(total_games >= 10 && ach1.finished==false){
-        store.set('ach_1', { a_id: '0', condition: 'Play game 10 times', finished: true, reward: 10 });
+        store.set('ach_1', { a_id: '0', finished: true, progress: -1 });
         
         var lm = localStorage.getItem("money");
         lm = parseInt(lm);
-        lm += parseInt(ach1.reward);
+        lm += 5;
         localStorage.setItem("money",lm);
     }
 
     if(thisLevel+1 >= 25 && ach3.finished==false){
-         store.set('ach_3', { a_id: '2', condition: 'Reach level 25', finished: true, reward: 35 });
+         store.set('ach_3', { a_id: '2', finished: true, progress: -1 });
 
         var lm = localStorage.getItem("money");
         lm = parseInt(lm);
-        lm += parseInt(ach3.reward);
+        lm += 35;
         localStorage.setItem("money",lm);
 
     }
     if(thisLevel+1 >= 15 && ach2.finished==false){
-         store.set('ach_2', { a_id: '1', condition: 'Reach level 15', finished: true, reward: 16 });
+        store.set('ach_2', { a_id: '1', finished: true, progress: -1 });
 
         var lm = localStorage.getItem("money");
         lm = parseInt(lm);
-        lm += parseInt(ach2.reward);
+        lm += 12;
         localStorage.setItem("money",lm);
     }
 }
