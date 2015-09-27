@@ -1,5 +1,5 @@
 
-var totalDesignCount = 7;
+var totalDesignCount = 8;
 
 
 var boughtDesigns = 0;
@@ -12,7 +12,8 @@ var cost = [
     300,
     400,
     500,
-    600
+    600,
+    700
 ];
 
 var names = [
@@ -22,7 +23,8 @@ var names = [
     "Dots",
     "Planets",
     "Freedom?",
-    "Animals"
+    "Animals",
+    "Wizards"
 ];
 
 
