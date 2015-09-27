@@ -14,7 +14,18 @@ var rewards = [
     100
 ];
 
+/*function getLiveInfoAboutAchievmentProgress(){
+
+    if( localstorage.getItem() )
+
+}*/
+
+
 function loadAchievements(){
+
+    getLiveInfoAboutAchievmentProgress();
+
+
     if(store.get("achievements_loaded")==undefined){
         store.set("achievements_loaded",true);
 
@@ -39,7 +50,7 @@ function loadAchievements(){
             if(aPro == -1){
                 $( ".achievements_box" ).append( "<div id="+'ach'+aId+" onclick='togTxt("+aId+");' class='achievement ach_def'>"+aTxt+"</div>" );
             }else{
-                $( ".achievements_box" ).append( "<div id="+'ach'+aId+" onclick='togTxt("+aId+");' class='achievement ach_def'>"+aTxt+"  "+aPro+"/"+aTar+"</div>" );
+                $( ".achievements_box" ).append( "<div id="+'ach'+aId+" onclick='togTxt("+aId+");' class='achievement ach_def'>"+aTxt+"  "+Math.min(aPro,aTar)+"/"+aTar+"</div>" );
             } 
         }
     }
@@ -54,7 +65,7 @@ function togTxt(i){
     var aPro = achievement.progress;
     var aTar = achievement.a_target;
 
-    $("#ach"+i).html("Reward: "+aReward+" sqoin/s");
+    $("#ach"+i).html("Reward: "+aReward+" <img style='display:inline; vertical-align:bottom;' width='18px' src='images/sqoin.png'>");
 
 
     if(aFinished){
@@ -63,7 +74,7 @@ function togTxt(i){
         if(aPro==-1){
             setTimeout(function(){ $("#ach"+i).html(aTxt); }, 2500);
         }else{
-            setTimeout(function(){ $("#ach"+i).html(aTxt+"  "+aPro+"/"+aTar); }, 2500);
+            setTimeout(function(){ $("#ach"+i).html(aTxt+"  "+ Math.min(aPro,aTar) +"/"+aTar); }, 2500);
         }
     }
     
