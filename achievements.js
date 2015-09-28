@@ -23,7 +23,7 @@ var rewards = [
 
 function loadAchievements(){
 
-    getLiveInfoAboutAchievmentProgress();
+    //getLiveInfoAboutAchievmentProgress();
 
 
     if(store.get("achievements_loaded")==undefined){
