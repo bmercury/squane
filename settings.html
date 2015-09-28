@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<link rel='stylesheet' type='text/css' href='style.css'/>
-		<script type="text/javascript" src="fabric.js"></script>
+		<script type="text/javascript" src="store.js"></script>
 		<script src="jquery.min.js"></script>
 		<script type="text/javascript" src="script.js"></script>
 
@@ -53,12 +53,29 @@
 			<div class="line"></div>
 			<button onclick="change(0)" id="light">Light theme</button>
 			<button onclick="change(1)" id="dark">Dark theme</button>
+			<button onclick="reset()" id="dark">Reset game</button>
 		</div>
 
 		<script type="text/javascript">
 			function change(n){
 				localStorage.setItem("bg", n);
 				setBg();
+			}
+
+			function reset() {
+				localStorage.setItem("visited",false);
+				localStorage.setItem("totalgames",0);
+				localStorage.setItem("mscore",0);
+				localStorage.setItem("money",0);
+				localStorage.setItem("mlvl",0);
+				localStorage.setItem("havePlayed",false);
+				localStorage.setItem("chosedDesign",0);
+				localStorage.setItem("boughtDesigns",1);
+				localStorage.setItem("bg",0);
+				store.remove('ach_1');
+				store.remove('ach_2');
+				store.remove('ach_3');
+				store.remove('ach_4');
 			}
 		</script>
 	</body>
