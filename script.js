@@ -8,7 +8,7 @@ function splash(n){
 
 function testForTut(){
     //alert("tst");
-    if(localStorage.getItem("havePlayed")===null){
+    if(localStorage.getItem("havePlayed")===null || localStorage.getItem("havePlayed")===false){
         localStorage.setItem("havePlayed",1);
         window.location = "tutorial.html";
     }
@@ -45,7 +45,7 @@ function setBg(){
     }
     $("body").css('background-color', bg);
     $("body").css('color', color);
-
+    console.log("bgSet");
 }
 
 window.onload = function() {

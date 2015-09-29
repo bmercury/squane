@@ -169,6 +169,8 @@ h2{
 	background-color: white;
 	box-shadow: inset 0px 0px 0px 3px white;
 	padding: 3px;
+	padding-left: 12px;
+	padding-right: 12px;
 	padding-bottom: 5px;
 	margin: 5px;
 	border-radius: 3px;
@@ -189,11 +191,15 @@ h2{
 	background-color: grey;
 	box-shadow: inset 0px 0px 0px 3px black;
 	padding: 3px;
+	padding-left: 12px;
+	padding-right: 12px;
 	padding-bottom: 5px;
 }
 .canBuy{
 	background-color: darkgrey;
 	padding: 3px;
+	padding-left: 12px;
+	padding-right: 12px;
 	padding-bottom: 5px;
 	box-shadow: inset 0px 0px 0px 3px darkgrey;
 }
