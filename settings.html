@@ -45,6 +45,19 @@
 		margin-top: 15px;
 		border: 2px solid #242424;
 	}
+	#danger{
+		width: 90%;
+		margin-left: 5%;
+		margin-right: 5%;
+		height: 70px;
+		border-radius: 4px;
+		font-size: 16pt;
+		font-weight:bold;
+		background-color: #C73434;
+		border: #9E1C1C;
+		color:white;
+		margin-top: 15px;
+	}
 	</style>
 	<body>
 		<a href="menu.html"><img src="images/squane-logo.png" class="top-image"></a>
@@ -53,7 +66,7 @@
 			<div class="line"></div>
 			<button onclick="change(0)" id="light">Light theme</button>
 			<button onclick="change(1)" id="dark">Dark theme</button>
-			<button onclick="reset()" id="dark">Reset game</button>
+			<button onclick="reset()" id="danger">Reset game</button>
 		</div>
 
 		<script type="text/javascript">
@@ -63,20 +76,24 @@
 			}
 
 			function reset() {
-				localStorage.setItem("visited",false);
-				localStorage.setItem("totalgames",0);
-				localStorage.setItem("mscore",0);
-				localStorage.setItem("money",0);
-				localStorage.setItem("mlvl",0);
-				localStorage.setItem("chosedDesign",0);
-				localStorage.setItem("boughtDesigns",1);
-				localStorage.setItem("bg",0);
-				store.remove('ach_1');
-				store.remove('ach_2');
-				store.remove('ach_3');
-				store.remove('ach_4');
-				store.remove('achievements_loaded');
-				store.remove('havePlayed');
+				var userAnswer = confirm("Reset game?\nAfter this you will have 0 money, default design, no achievements finished, no superpowers stored...\nAre you sure?");
+
+				if(userAnswer){
+					localStorage.setItem("visited",false);
+					localStorage.setItem("totalgames",0);
+					localStorage.setItem("mscore",0);
+					localStorage.setItem("money",0);
+					localStorage.setItem("mlvl",0);
+					localStorage.setItem("chosedDesign",0);
+					localStorage.setItem("boughtDesigns",1);
+					localStorage.setItem("bg",0);
+					store.remove('ach_1');
+					store.remove('ach_2');
+					store.remove('ach_3');
+					store.remove('ach_4');
+					store.remove('achievements_loaded');
+					store.remove('havePlayed');
+				}
 			}
 		</script>
 	</body>
