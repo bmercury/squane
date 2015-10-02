@@ -14,18 +14,7 @@ var rewards = [
     100
 ];
 
-/*function getLiveInfoAboutAchievmentProgress(){
-
-    if( localstorage.getItem() )
-
-}*/
-
-
-function loadAchievements(){
-
-    //getLiveInfoAboutAchievmentProgress();
-
-
+function getLiveInfoAboutAchievmentProgress(){
     if(store.get("achievements_loaded")==undefined){
         store.set("achievements_loaded",true);
 
@@ -34,6 +23,56 @@ function loadAchievements(){
         store.set('ach_3', { a_id: '2', finished: false, progress: -1 });
         store.set('ach_4', { a_id: '3', finished: false, progress: 0, a_target: 2 });
     }
+
+
+    var total_games = localStorage.getItem("totalgames");
+    var maxLvl = localStorage.getItem("mlvl");
+    var boughtDesigns = localStorage.getItem("boughtDesigns");
+    var ach1 = store.get('ach_1');
+    var ach2 = store.get('ach_2');
+    var ach3 = store.get('ach_3');
+
+    if(total_games >= 10 && ach1.finished==false){
+        store.set('ach_1', { a_id: '0', finished: true, progress: -1 });
+        
+        var lm = localStorage.getItem("money");
+        lm = parseInt(lm);
+        lm += 5;
+        localStorage.setItem("money",lm);
+    }
+
+    if(maxLvl >= 25 && ach3.finished==false){
+         store.set('ach_3', { a_id: '2', finished: true, progress: -1 });
+
+        var lm = localStorage.getItem("money");
+        lm = parseInt(lm);
+        lm += 35;
+        localStorage.setItem("money",lm);
+
+    }
+    if(maxLvl >= 15 && ach2.finished==false){
+        store.set('ach_2', { a_id: '1', finished: true, progress: -1 });
+
+        var lm = localStorage.getItem("money");
+        lm = parseInt(lm);
+        lm += 12;
+        localStorage.setItem("money",lm);
+    }
+    if(boughtDesigns>=3){
+        store.set('ach_4', { a_id: '1', finished: true, progress: -1 });
+
+        var lm = localStorage.getItem("money");
+        lm = parseInt(lm);
+        lm += 12;
+        localStorage.setItem("money",lm);
+    }
+
+}
+
+
+function loadAchievements(){
+
+    getLiveInfoAboutAchievmentProgress();
 
     for(var i=1;i<=achievements_count;++i){
 
@@ -81,5 +120,6 @@ function togTxt(i){
 }
 
 window.onload = function() {
+    //getLiveInfoAboutAchievmentProgress();
     loadAchievements();
 }
