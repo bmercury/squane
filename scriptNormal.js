@@ -56,7 +56,7 @@ var maxColors = 5;
 var maxRows = 4;
 var maxScore=0;
 
-
+var gameHasBeenStopped = false;
 var thisLevel = 0;
 
 
@@ -100,23 +100,29 @@ function mainLevelFunction() {
 
     getMoney();
 
+
     setTimeout(function(){
 
-        if (waitTime>0) {
-            for(var i = 0; i<level.rows*level.rows; i++) {
-                $("#block" + i).removeClass("correctChoise");
-                $("#block" + i).removeClass("incorrectChoise");
-            }
-        };
+        if(!gameHasBeenStopped){
 
-        generateLevelData();
-        var displayLevel = (thisLevel+1);
-        document.getElementById("lvl").innerHTML = "Level: " + displayLevel;
-        resetSquares(level.rows * level.rows);
-        document.getElementById("currentPlace").innerHTML = "";
-        newColorPattern();
+            if (waitTime>0) {
+                for(var i = 0; i<level.rows*level.rows; i++) {
+                    $("#block" + i).removeClass("correctChoise");
+                    $("#block" + i).removeClass("incorrectChoise");
+                }
+            };
 
-        createSquares();
+            generateLevelData();
+            var displayLevel = (thisLevel+1);
+            document.getElementById("lvl").innerHTML = "Level: " + displayLevel;
+            resetSquares(level.rows * level.rows);
+            document.getElementById("currentPlace").innerHTML = "";
+            newColorPattern();
+
+            createSquares();
+
+        }
+
     },waitTime);
 }
 
@@ -389,10 +395,13 @@ function achieve(){
     }
 }
 
+
+
 function endGame() {
-    if(thisLevel+1 > 5){
+    //if(thisLevel+1 > 5 && !gameHasBeenStopped){
+    if(!gameHasBeenStopped){
+        gameHasBeenStopped = true;
         gameOver();
-         setTimeout(function(){ location.replace("menu.html") }, 3000);
     }else{
         location.replace("menu.html");
     }
