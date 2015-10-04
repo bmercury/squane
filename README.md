@@ -1,2 +1,2 @@
 # Squane
-<strong>Android application</strong> that trains short term memory using colored squares in different combinations. 
+Currently developed under organization -  WisdomWorkshop. https://github.com/WisdomWorkshop/squane
