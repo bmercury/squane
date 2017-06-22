@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://assets/img/pack0/gray.png" type="Texture" id=1]
+[ext_resource path="res://scripts/square.gd" type="Script" id=2]
+[ext_resource path="res://assets/img/border.png" type="Texture" id=3]
+
+[node name="square" type="Sprite"]
+
+transform/scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 1 )
+centered = false
+script/script = ExtResource( 2 )
+
+[node name="correct" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 3 )
+centered = false
+modulate = Color( 0.222291, 0.804688, 0.188599, 1 )
+
+[node name="correct4" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 3 )
+centered = false
+modulate = Color( 0.219608, 0.803922, 0.188235, 1 )
+
+[node name="wrong" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 3 )
+centered = false
+modulate = Color( 0.757812, 0.186493, 0.186493, 1 )
+
+[node name="wrong4" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 3 )
+centered = false
+modulate = Color( 0.756863, 0.184314, 0.184314, 1 )
+
+

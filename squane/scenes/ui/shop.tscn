@@ -1,0 +1,454 @@
+[gd_scene load_steps=18 format=1]
+
+[ext_resource path="res://scripts/ui/shop.gd" type="Script" id=1]
+[ext_resource path="res://assets/img/card.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/lato32.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://assets/img/pack0/red.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/buttons/half.png" type="Texture" id=5]
+[ext_resource path="res://assets/fonts/lato22.fnt" type="BitmapFont" id=6]
+[ext_resource path="res://assets/img/pack1/red.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/pack2/red.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/pack3/red.png" type="Texture" id=9]
+[ext_resource path="res://assets/fonts/Lato/Lato-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://assets/img/sqoin.png" type="Texture" id=11]
+[ext_resource path="res://scenes/ui/back.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/fonts/lato28.fnt" type="BitmapFont" id=13]
+[ext_resource path="res://assets/img/buttons/full.png" type="Texture" id=14]
+[ext_resource path="res://assets/fonts/lato38.fnt" type="BitmapFont" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 62
+font/use_mipmaps = false
+font/use_filter = true
+font/font = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 36
+font/use_mipmaps = false
+font/use_filter = true
+font/font = ExtResource( 10 )
+
+[node name="shop" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="0" type="TextureFrame" parent="."]
+
+editor/display_folded = true
+rect/min_size = Vector2( 260, 260 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 50.0
+margin/top = 436.0
+margin/right = 550.0
+margin/bottom = 696.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="name" type="Label" parent="0"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 3.0
+margin/top = 4.0
+margin/right = 242.0
+margin/bottom = 71.0
+custom_fonts/font = ExtResource( 3 )
+text = "Classic"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="prew" type="Sprite" parent="0"]
+
+transform/pos = Vector2( 123.209, 117.281 )
+transform/scale = Vector2( 0.682148, 0.682148 )
+texture = ExtResource( 4 )
+
+[node name="Button" type="TextureButton" parent="0"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 22.0
+margin/top = 184.0
+margin/right = 222.0
+margin/bottom = 240.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+params/resize_mode = 0
+params/scale = Vector2( 0.8, 0.7 )
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="0/Button"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 199.0
+margin/bottom = 57.0
+custom_fonts/font = ExtResource( 6 )
+text = "Select"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="1" type="TextureFrame" parent="."]
+
+editor/display_folded = true
+rect/min_size = Vector2( 260, 260 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 310.0
+margin/top = 436.0
+margin/right = 810.0
+margin/bottom = 696.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="name" type="Label" parent="1"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 3.0
+margin/top = 4.0
+margin/right = 242.0
+margin/bottom = 71.0
+custom_fonts/font = ExtResource( 3 )
+text = "Flat"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="prew" type="Sprite" parent="1"]
+
+transform/pos = Vector2( 123.209, 117.281 )
+transform/scale = Vector2( 0.682148, 0.682148 )
+texture = ExtResource( 7 )
+
+[node name="Button" type="TextureButton" parent="1"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 22.0
+margin/top = 184.0
+margin/right = 222.0
+margin/bottom = 240.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+params/resize_mode = 0
+params/scale = Vector2( 0.8, 0.7 )
+params/stretch_mode = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="1/Button"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 199.0
+margin/bottom = 57.0
+custom_fonts/font = ExtResource( 6 )
+text = "Select"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="2" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 50.0
+margin/top = 710.0
+margin/right = 295.0
+margin/bottom = 970.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="name" type="Label" parent="2"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 3.0
+margin/top = 4.0
+margin/right = 242.0
+margin/bottom = 71.0
+custom_fonts/font = ExtResource( 3 )
+text = "Shapes"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="prew" type="Sprite" parent="2"]
+
+transform/pos = Vector2( 123.209, 117.281 )
+transform/scale = Vector2( 0.682148, 0.682148 )
+texture = ExtResource( 8 )
+
+[node name="Button" type="TextureButton" parent="2"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 22.0
+margin/top = 182.0
+margin/right = 222.0
+margin/bottom = 238.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+params/resize_mode = 0
+params/scale = Vector2( 0.8, 0.7 )
+params/stretch_mode = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="2/Button"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 199.0
+margin/bottom = 57.0
+custom_fonts/font = ExtResource( 6 )
+text = "Select"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="3" type="TextureFrame" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 310.0
+margin/top = 710.0
+margin/right = 555.0
+margin/bottom = 970.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="name" type="Label" parent="3"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 3.0
+margin/top = 4.0
+margin/right = 242.0
+margin/bottom = 71.0
+custom_fonts/font = ExtResource( 3 )
+text = "Animals"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="prew" type="Sprite" parent="3"]
+
+transform/pos = Vector2( 123.209, 117.281 )
+transform/scale = Vector2( 0.682148, 0.682148 )
+texture = ExtResource( 9 )
+
+[node name="Button" type="TextureButton" parent="3"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 23.0
+margin/top = 181.0
+margin/right = 223.0
+margin/bottom = 237.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 5 )
+params/resize_mode = 0
+params/scale = Vector2( 0.8, 0.7 )
+params/stretch_mode = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="3/Button"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 199.0
+margin/bottom = 57.0
+custom_fonts/font = ExtResource( 6 )
+text = "Select"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="title" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 605.0
+margin/bottom = 247.0
+custom_fonts/font = SubResource( 1 )
+text = "Shop"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="sqoin" type="Sprite" parent="."]
+
+transform/pos = Vector2( 545.538, 60.7032 )
+transform/scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 11 )
+
+[node name="sqoins" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 261.0
+margin/top = 41.0
+margin/right = 509.0
+margin/bottom = 85.0
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="back" parent="." instance=ExtResource( 12 )]
+
+margin/left = 20.0
+margin/top = 25.0
+margin/right = 71.0
+margin/bottom = 76.2
+
+[node name="ads_text" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 10.0
+margin/top = 200.0
+margin/right = 590.0
+margin/bottom = 300.0
+custom_fonts/font = ExtResource( 13 )
+text = "When ads are enabled, you get cheaper bombs and free level skips."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ads" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 50.0
+margin/top = 310.0
+margin/right = 550.0
+margin/bottom = 390.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 14 )
+params/resize_mode = 0
+params/stretch_mode = 0
+
+[node name="Label" type="Label" parent="ads"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 500.0
+margin/bottom = 80.0
+custom_fonts/font = ExtResource( 15 )
+text = "Enable ads"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

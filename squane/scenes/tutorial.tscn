@@ -1,0 +1,362 @@
+[gd_scene load_steps=12 format=1]
+
+[ext_resource path="res://scripts/tutorial.gd" type="Script" id=1]
+[ext_resource path="res://assets/img/pack0/gray.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/lato32.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://scenes/square.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/img/pack0/red.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/pack0/blue.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/black.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/lato40.fnt" type="BitmapFont" id=8]
+[ext_resource path="res://assets/fonts/lato38.fnt" type="BitmapFont" id=9]
+[ext_resource path="res://assets/img/buttons/full.png" type="Texture" id=10]
+[ext_resource path="res://assets/img/buttons/half.png" type="Texture" id=11]
+
+[node name="tutorial" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="color" type="TextureButton" parent="."]
+
+rect/scale = Vector2( 1.2, 1.2 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 245.0
+margin/top = 720.0
+margin/right = 335.0
+margin/bottom = 810.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+params/resize_mode = 0
+params/scale = Vector2( 0.7, 0.7 )
+params/stretch_mode = 0
+
+[node name="hint" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 10.0
+margin/right = 600.0
+margin/bottom = 290.0
+custom_fonts/font = ExtResource( 3 )
+text = "Remember the colors"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = true
+autostart = false
+
+[node name="1" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 140, 350 )
+texture = ExtResource( 5 )
+
+[node name="2" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 250, 350 )
+texture = ExtResource( 5 )
+
+[node name="3" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 360, 350 )
+texture = ExtResource( 5 )
+
+[node name="4" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 140, 460 )
+texture = ExtResource( 5 )
+
+[node name="5" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 250, 460 )
+texture = ExtResource( 6 )
+
+[node name="6" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 360, 460 )
+texture = ExtResource( 6 )
+
+[node name="7" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 140, 570 )
+texture = ExtResource( 5 )
+
+[node name="8" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 250, 570 )
+texture = ExtResource( 6 )
+
+[node name="9" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 360, 570 )
+texture = ExtResource( 6 )
+
+[node name="black" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 600.0
+margin/bottom = 1024.0
+texture = ExtResource( 7 )
+modulate = Color( 0.0742188, 0.0742188, 0.0742188, 1 )
+expand = true
+stretch_mode = 0
+
+[node name="text1" type="RichTextLabel" parent="black"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 36.0
+margin/top = 49.0
+margin/right = 570.0
+margin/bottom = 799.0
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode/enabled = false
+bbcode/bbcode = "Hello there!
+
+We thank you for giving Squane a chance.
+
+We want to make your player experience as good as possible by getting rid of all the confusement and teaching you the basics."
+visible_characters = -1
+
+[node name="text2" type="RichTextLabel" parent="black"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 36.0
+margin/top = 49.0
+margin/right = 570.0
+margin/bottom = 799.0
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode/enabled = false
+bbcode/bbcode = "Squane is all about colors, squares and memorization.
+
+You start the game with 9 colored squares.
+You have to remember color for each of them.
+
+After closing this window, look at the squares and remember their colors.
+You only have a set amount of time to do this."
+visible_characters = -1
+
+[node name="text3" type="RichTextLabel" parent="black"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 36.0
+margin/top = 49.0
+margin/right = 570.0
+margin/bottom = 799.0
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode/enabled = false
+bbcode/bbcode = "All the squares turned gray.
+
+There is a 10th square at the bottom of screen, who's color indicates the current selected color.
+
+After closing this window, tap or slide across all the squares which were in the same color as the 10th square."
+visible_characters = -1
+
+[node name="text4" type="RichTextLabel" parent="black"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 36.0
+margin/top = 49.0
+margin/right = 570.0
+margin/bottom = 799.0
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode/enabled = false
+bbcode/bbcode = "Great!
+
+After closing this window, tap on the 10th square and then on all the squares which were in the same color as the 10th square."
+visible_characters = -1
+
+[node name="text5" type="RichTextLabel" parent="black"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 36.0
+margin/top = 49.0
+margin/right = 570.0
+margin/bottom = 939.0
+custom_fonts/normal_font = ExtResource( 9 )
+bbcode/enabled = false
+bbcode/bbcode = "Very well, this is how you play Squane.
+
+Visit help section to learn more or play this tutorial again.
+
+If you want to get free level skipping and cheaper bombs, enable ads in the shop! (They are already enabled)
+
+If you feel like you need to play this level again, tap retry!
+
+Please, rate our game and tell us what you think!"
+visible_characters = -1
+
+[node name="text6" type="RichTextLabel" parent="black"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 36.0
+margin/top = 49.0
+margin/right = 570.0
+margin/bottom = 939.0
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode/enabled = false
+bbcode/bbcode = "If you tap the wrong color, your score reduces, but you can still play.
+
+If you feel like you now know how to play, tap finish."
+visible_characters = -1
+
+[node name="continue" type="TextureButton" parent="black"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 50.0
+margin/top = 910.0
+margin/right = 550.0
+margin/bottom = 990.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 10 )
+params/resize_mode = 0
+params/stretch_mode = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="black/continue"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 500.0
+margin/bottom = 80.0
+custom_fonts/font = ExtResource( 3 )
+text = "Continue"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="finish" type="TextureButton" parent="black"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 320.0
+margin/top = 910.0
+margin/right = 570.0
+margin/bottom = 990.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 11 )
+params/resize_mode = 0
+params/stretch_mode = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="black/finish"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 250.0
+margin/bottom = 80.0
+custom_fonts/font = ExtResource( 3 )
+text = "Finish"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="retry" type="TextureButton" parent="black"]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 30.0
+margin/top = 910.0
+margin/right = 280.0
+margin/bottom = 990.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 11 )
+params/resize_mode = 0
+params/stretch_mode = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="black/retry"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 250.0
+margin/bottom = 80.0
+custom_fonts/font = ExtResource( 3 )
+text = "Retry"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="timeout" from="timer" to="." method="_timeout"]
+
+

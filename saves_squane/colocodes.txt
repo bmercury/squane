@@ -1,0 +1,11 @@
+RED:    255 | 119 | 123      #FF777B / #f65559
+
+BLUE:   147 | 186 | 255      #93BAFF / #6c95de
+
+GREEN:  135 | 255 | 135      #87FF87
+
+YELLOW: 224 | 229 | 126      #FFE57E
+
+PURPLE: 190 | 141 | 214      #BE8DD6
+
+GRAY:   202 | 202 | 202      #CACACA

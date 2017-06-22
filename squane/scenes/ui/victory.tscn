@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://assets/img/black.png" type="Texture" id=1]
+[ext_resource path="res://scripts/ui/victory.gd" type="Script" id=2]
+[ext_resource path="res://assets/img/monkey.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/lato40.fnt" type="BitmapFont" id=4]
+[ext_resource path="res://assets/fonts/lato32.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://assets/img/buttons/full.png" type="Texture" id=6]
+[ext_resource path="res://assets/fonts/lato38.fnt" type="BitmapFont" id=7]
+
+[node name="victory" type="TextureFrame"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 600.0
+margin/bottom = 1024.0
+texture = ExtResource( 1 )
+modulate = Color( 0.0664062, 0.0664062, 0.0664062, 1 )
+expand = true
+stretch_mode = 0
+script/script = ExtResource( 2 )
+text = "Dear player, you have beaten the chimp - The king of Squane!\n\nYou can still play 3x3 board as before, but you might wanna try out the 4x4 board, which will be more challenging.\n\nIf you enjoyed playing Squane, please rate us in the Google Play Store."
+
+[node name="monkey" type="TextureFrame" parent="."]
+
+rect/scale = Vector2( 0.6, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 180.0
+margin/top = 30.0
+margin/right = 580.0
+margin/bottom = 630.0
+texture = ExtResource( 3 )
+stretch_mode = 0
+
+[node name="title" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 390.0
+margin/right = 600.0
+margin/bottom = 484.0
+custom_fonts/font = ExtResource( 4 )
+text = "Awesome!"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="text" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 40.0
+margin/top = 490.0
+margin/right = 557.0
+margin/bottom = 864.0
+custom_fonts/font = ExtResource( 5 )
+text = "Dear player, you have beaten the chimp - The king of Squane!\n\nI didn\'t believe someone could actually get this far. You have an impressive mind.\n\nIf you enjoyed playing Squane, please rate it!"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="menu" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 50.0
+margin/top = 900.0
+margin/right = 550.0
+margin/bottom = 980.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="menu"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 500.0
+margin/bottom = 84.0
+custom_fonts/font = ExtResource( 7 )
+text = "Go to the main menu"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+

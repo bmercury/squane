@@ -1,0 +1,436 @@
+[gd_scene load_steps=24 format=1]
+
+[ext_resource path="res://scripts/ui/minimap.gd" type="Script" id=1]
+[ext_resource path="res://assets/img/minimap/connect.png" type="Texture" id=2]
+[ext_resource path="res://assets/img/minimap/ball1.png" type="Texture" id=3]
+[ext_resource path="res://assets/img/minimap/ball2.png" type="Texture" id=4]
+[ext_resource path="res://assets/img/minimap/ball3.png" type="Texture" id=5]
+[ext_resource path="res://assets/img/minimap/ball4.png" type="Texture" id=6]
+[ext_resource path="res://assets/img/minimap/ball5.png" type="Texture" id=7]
+[ext_resource path="res://assets/img/minimap/ball6.png" type="Texture" id=8]
+[ext_resource path="res://assets/img/minimap/arrow.png" type="Texture" id=9]
+[ext_resource path="res://assets/fonts/lato28.fnt" type="BitmapFont" id=10]
+[ext_resource path="res://assets/img/scorebox.png" type="Texture" id=11]
+[ext_resource path="res://assets/fonts/lato38.fnt" type="BitmapFont" id=12]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "move_to_1"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 38.5, 49.5 ), Vector2( 106, 49.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../progress:rect/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 65, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "move_to_2"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 106, 49.5 ), Vector2( 176, 49.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../progress:rect/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 65, 0 ), Vector2( 136, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "move_to_3"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 176, 49.5 ), Vector2( 246, 49.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../progress:rect/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 136, 0 ), Vector2( 204, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource/name = "move_to_4"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 246, 49.5 ), Vector2( 316, 49.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../progress:rect/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 204, 0 ), Vector2( 274, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "move_to_5"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 316, 49.5 ), Vector2( 386, 49.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../progress:rect/pos")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 274, 0 ), Vector2( 344, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "ball0_grow"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ball1:transform/scale")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.4 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.75, 0.75 ), Vector2( 0.65, 0.65 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource/name = "ball1_grow"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ball2:transform/scale")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.65, 0.65 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ball1:transform/scale")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.65, 0.65 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource/name = "ball2_grow"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ball3:transform/scale")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.65, 0.65 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ball2:transform/scale")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.65, 0.65 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource/name = "ball3_grow"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ball4:transform/scale")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.65, 0.65 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ball3:transform/scale")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.65, 0.65 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+resource/name = "ball4_grow"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ball5:transform/scale")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.65, 0.65 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ball4:transform/scale")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.65, 0.65 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource/name = "ball5_grow"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ball6:transform/scale")
+tracks/0/interp = 2
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.65, 0.65 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ball5:transform/scale")
+tracks/1/interp = 2
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.4 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.65, 0.65 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[node name="minimap" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="line" type="TextureFrame" parent="."]
+
+rect/scale = Vector2( 1, 0.6 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 32.0
+margin/top = 94.0
+margin/right = 402.0
+margin/bottom = 114.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 0
+
+[node name="ball1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 39.5, 98.5 )
+transform/scale = Vector2( 0.65, 0.65 )
+texture = ExtResource( 3 )
+
+[node name="ball2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 107, 99 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="ball3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 177, 99 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="ball4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 247, 99 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="ball5" type="Sprite" parent="."]
+
+transform/pos = Vector2( 317, 99 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="ball6" type="Sprite" parent="."]
+
+transform/pos = Vector2( 387, 99 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+
+[node name="arrow" type="Sprite" parent="."]
+
+transform/pos = Vector2( 38.5, 49.5 )
+transform/scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 9 )
+
+[node name="animations" type="AnimationPlayer" parent="arrow"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/move_to_1 = SubResource( 1 )
+anims/move_to_2 = SubResource( 2 )
+anims/move_to_3 = SubResource( 3 )
+anims/move_to_4 = SubResource( 4 )
+anims/move_to_5 = SubResource( 5 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="progress" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 81.0
+margin/bottom = 37.0
+custom_fonts/font = ExtResource( 10 )
+text = "0%"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="scorebox" type="Sprite" parent="."]
+
+transform/pos = Vector2( 215, 179 )
+texture = ExtResource( 11 )
+
+[node name="score" type="Label" parent="scorebox"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -183.0
+margin/top = -36.0
+margin/right = 177.0
+margin/bottom = 41.0
+custom_fonts/font = ExtResource( 12 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ball_anims" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/ball0_grow = SubResource( 6 )
+anims/ball1_grow = SubResource( 7 )
+anims/ball2_grow = SubResource( 8 )
+anims/ball3_grow = SubResource( 9 )
+anims/ball4_grow = SubResource( 10 )
+anims/ball5_grow = SubResource( 11 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+
